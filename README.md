@@ -157,4 +157,5 @@ echo "source <build-path>/ci/toolchain_env.sh" >> ~/.bashrc
 - `docs/skybox_feature_map.md` — graphics block map from RTL
 - `docs/skybox_hw_sw_interface.md` — AXI/DCR integration + SW control surface
 - `docs/skybox_linux_graphics_readiness.md` — Linux/Wayland readiness + gaps
+- `docs/skybox_linux_graphics_readiness_ru.md` — RU/extended readiness report
 - `docs/README.md` — index of Skybox‑specific docs and test entry points

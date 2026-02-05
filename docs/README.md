@@ -9,6 +9,8 @@ integration work.
 - `skybox_hw_sw_interface.md` — AXI/DCR integration + SW control surface.
 - `skybox_linux_graphics_readiness.md` — Linux/Wayland readiness report, gaps,
   risks, and next‑stage plan.
+- `skybox_linux_graphics_readiness_ru.md` — RU/extended readiness report
+  (separate scanout/display controller assumed).
 
 ## Test entry points
 - `ci/skybox_microtests.sh` — simx/rtlsim microtests with sha checks.
@@ -22,4 +24,3 @@ integration work.
 - `install_vortex.md` — install/build overview.
 - `simulation.md` — simulator usage.
 - `debugging.md` — debug workflows.
-
