@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 BUILD_DIR="${BUILD_DIR:-$ROOT/build-xlen32-gfxmicro}"
 OUTDIR="${OUTDIR:-$BUILD_DIR/artifacts/microtests}"
-CONFIGS="${CONFIGS:--DEXT_GFX_ENABLE}"
+CONFIGS="${CONFIGS:-}"
 DRIVER_FILTER="${DRIVER_FILTER:-both}"
 OSVERSION="${OSVERSION:-ubuntu/focal}"
 VERILATOR_BIN="${VERILATOR_BIN:-}"
@@ -12,6 +12,20 @@ if [[ -z "$VERILATOR_BIN" && -n "${VERILATOR_ROOT:-}" ]]; then
   VERILATOR_BIN="$VERILATOR_ROOT/bin"
 fi
 DO_BUILD=1
+STAMP_FILE=""
+
+add_flag() {
+  local base="$1" flag="$2"
+  case " $base " in
+    *" $flag "*) echo "$base" ;;
+    *) echo "${base:+$base }$flag" ;;
+  esac
+}
+
+# Always require gfx ISA extensions for these tests.
+CONFIGS="$(add_flag "$CONFIGS" "-DEXT_GFX_ENABLE")"
+STAMP_FILE="$BUILD_DIR/.microtests.configstamp"
+GFX_ERR_RE="RASTER ISA extensions are needed|TEX ISA extensions are needed|OM ISA extensions are needed"
 
 usage() {
   cat <<USAGE
@@ -33,18 +47,58 @@ while [[ $# -gt 0 ]]; do
 
 mkdir -p "$OUTDIR/logs"
 
+build_runtime() {
+  local path_prefix=""
+  if [[ -n "$VERILATOR_BIN" ]]; then
+    path_prefix="PATH=\"$VERILATOR_BIN:$PATH\""
+  fi
+
+  if [[ "$DRIVER_FILTER" == "both" || "$DRIVER_FILTER" == "simx" ]]; then
+    eval "$path_prefix CC=gcc CXX=g++ CONFIGS=\"$CONFIGS\" make -C \"$BUILD_DIR/runtime/simx\""
+  fi
+  if [[ "$DRIVER_FILTER" == "both" || "$DRIVER_FILTER" == "rtlsim" ]]; then
+    eval "$path_prefix CC=gcc CXX=g++ CONFIGS=\"$CONFIGS\" make -C \"$BUILD_DIR/runtime/rtlsim\""
+  fi
+}
+
+clean_runtime() {
+  if [[ "$DRIVER_FILTER" == "both" || "$DRIVER_FILTER" == "simx" ]]; then
+    make -C "$BUILD_DIR/runtime/simx" clean || true
+  fi
+  if [[ "$DRIVER_FILTER" == "both" || "$DRIVER_FILTER" == "rtlsim" ]]; then
+    make -C "$BUILD_DIR/runtime/rtlsim" clean || true
+  fi
+}
+
 ensure_build() {
   if [[ ! -f "$BUILD_DIR/Makefile" ]]; then
     mkdir -p "$BUILD_DIR"
     (cd "$BUILD_DIR" && "${ROOT}/configure" --xlen=32 --osversion="$OSVERSION")
   fi
-  if [[ $DO_BUILD -eq 1 ]]; then
-    if [[ -n "$VERILATOR_BIN" ]]; then
-      PATH="$VERILATOR_BIN:$PATH" CC=gcc CXX=g++ make -s -C "$BUILD_DIR"
-    else
-      CC=gcc CXX=g++ make -s -C "$BUILD_DIR"
+
+  local stamp_expected="CONFIGS=$CONFIGS"
+  local need_rebuild=0
+  if [[ ! -f "$STAMP_FILE" ]]; then
+    need_rebuild=1
+  else
+    if ! grep -Fxq "$stamp_expected" "$STAMP_FILE"; then
+      need_rebuild=1
     fi
   fi
+
+  if [[ $DO_BUILD -eq 1 ]]; then
+    if [[ -n "$VERILATOR_BIN" ]]; then
+      PATH="$VERILATOR_BIN:$PATH" CC=gcc CXX=g++ CONFIGS="$CONFIGS" make -s -C "$BUILD_DIR"
+    else
+      CC=gcc CXX=g++ CONFIGS="$CONFIGS" make -s -C "$BUILD_DIR"
+    fi
+  fi
+
+  if [[ $need_rebuild -eq 1 ]]; then
+    clean_runtime
+  fi
+  build_runtime
+  echo "$stamp_expected" > "$STAMP_FILE"
 }
 
 run_case() {
@@ -59,6 +113,7 @@ run_case() {
   local status=0
   local perf=""
   local elapsed=""
+  local healed=0
   for i in $(seq 1 "$repeat"); do
     local out_png="$OUTDIR/${name}_${driver}_${w}x${h}_run${i}.png"
     local log="$OUTDIR/logs/${name}_${driver}_${w}x${h}_run${i}.log"
@@ -66,18 +121,36 @@ run_case() {
     : >"$log"
     echo "==> $name ($driver) run $i: $args" | tee -a "$log" >&2
     echo "CMD: CONFIGS=\"$CONFIGS\" CC=gcc CXX=g++ $BUILD_DIR/ci/blackbox.sh --driver=$driver --app=draw3d --args=\"$args\" --cores=$cores --warps=$warps --threads=$threads" >>"$log"
-    set +e
-    if [[ -n "$VERILATOR_BIN" ]]; then
-      PATH="$VERILATOR_BIN:$PATH" CONFIGS="$CONFIGS" CC=gcc CXX=g++ \
-        "$BUILD_DIR/ci/blackbox.sh" --driver="$driver" --app=draw3d --args="$args" \
-        --cores="$cores" --warps="$warps" --threads="$threads" >>"$log" 2>&1
-    else
-      CONFIGS="$CONFIGS" CC=gcc CXX=g++ \
-        "$BUILD_DIR/ci/blackbox.sh" --driver="$driver" --app=draw3d --args="$args" \
-        --cores="$cores" --warps="$warps" --threads="$threads" >>"$log" 2>&1
-    fi
-    status=$?
-    set -e
+    while true; do
+      set +e
+      if [[ -n "$VERILATOR_BIN" ]]; then
+        PATH="$VERILATOR_BIN:$PATH" CONFIGS="$CONFIGS" CC=gcc CXX=g++ \
+          "$BUILD_DIR/ci/blackbox.sh" --driver="$driver" --app=draw3d --args="$args" \
+          --cores="$cores" --warps="$warps" --threads="$threads" >>"$log" 2>&1
+      else
+        CONFIGS="$CONFIGS" CC=gcc CXX=g++ \
+          "$BUILD_DIR/ci/blackbox.sh" --driver="$driver" --app=draw3d --args="$args" \
+          --cores="$cores" --warps="$warps" --threads="$threads" >>"$log" 2>&1
+      fi
+      status=$?
+      set -e
+
+      if [[ $status -ne 0 ]]; then
+        if [[ $healed -eq 0 ]]; then
+          if grep -Eiq "$GFX_ERR_RE" "$log"; then
+            echo "[microtests] gfx ISA missing; cleaning runtime and rebuilding with CONFIGS=\"$CONFIGS\"" | tee -a "$log" >&2
+          else
+            echo "[microtests] run failed; cleaning runtime and rebuilding with CONFIGS=\"$CONFIGS\" (one retry)" | tee -a "$log" >&2
+          fi
+          clean_runtime
+          build_runtime
+          echo "CONFIGS=$CONFIGS" > "$STAMP_FILE"
+          healed=1
+          continue
+        fi
+      fi
+      break
+    done
     if [[ -f "$out_png" ]]; then
       hashes+=("$(sha256sum "$out_png" | awk '{print $1}')")
     else
