@@ -74,6 +74,47 @@ source ./ci/toolchain_env.sh
 ```sh
 make -s
 ```
+
+## Tested baseline (Ubuntu 24.04 host)
+
+This repo is actively tested on Ubuntu 24.04 with an out‑of‑tree build and
+`--osversion=ubuntu/focal` (configure does not recognize noble yet).
+
+**Required system packages (from `ci/install_dependencies.sh`):**
+```sh
+sudo apt-get update -y
+sudo apt-get install -y build-essential valgrind libstdc++6 binutils python3 uuid-dev ccache
+sudo apt-get install -y libboost-serialization-dev libpng-dev
+```
+
+**Toolchain requirements:**
+- `CC=gcc` and `CXX=g++` for host builds (prevents accidental RISC‑V host builds).
+- Verilator available in `PATH` for `rtlsim` (example: `/home/svt/tools/verilator/bin`).
+
+**Recommended build workflow (out‑of‑tree):**
+```sh
+mkdir build-xlen32
+cd build-xlen32
+../configure --xlen=32 --osversion=ubuntu/focal
+source ./ci/toolchain_env.sh
+CC=gcc CXX=g++ make -s
+```
+
+## Quick smoke (SimX)
+```sh
+./ci/blackbox.sh --driver=simx --app=vecadd --cores=2
+CONFIGS="-DEXT_GFX_ENABLE" ./ci/blackbox.sh --driver=simx --app=draw3d \
+  --args="-ttekkaman.cgltrace -w256 -h256" --cores=2
+```
+The generated image is written under the build folder:
+`build-*/tests/regression/draw3d/output.png`
+
+## Microtests (graphics sanity)
+```sh
+# from the repo root or build dir
+PATH=/home/svt/tools/verilator/bin:$PATH OSVERSION=ubuntu/focal ./ci/skybox_microtests.sh
+```
+Results are saved to `build-*/artifacts/microtests/results.md` and `.csv`.
 ### Quick demo rendering a 3D scene using 2 cores
 
 <p align="center">
@@ -111,3 +152,9 @@ echo "source <build-path>/ci/toolchain_env.sh" >> ~/.bashrc
 ./ci/blackbox.sh --app=demo --debug=3
 ```
 - For additional information, check out the /docs.
+
+## Where to read more
+- `docs/skybox_feature_map.md` — graphics block map from RTL
+- `docs/skybox_hw_sw_interface.md` — AXI/DCR integration + SW control surface
+- `docs/skybox_linux_graphics_readiness.md` — Linux/Wayland readiness + gaps
+- `docs/README.md` — index of Skybox‑specific docs and test entry points
