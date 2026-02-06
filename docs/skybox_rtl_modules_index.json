@@ -1,0 +1,3743 @@
+{
+  "modules_total": 251,
+  "modules": [
+    {
+      "module_name": "VX_afu_ctrl",
+      "file_path": "hw/rtl/afu/xrt/VX_afu_ctrl.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "S_AXI_ADDR_WIDTH",
+        "S_AXI_DATA_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_afu_wrap",
+      "file_path": "hw/rtl/afu/xrt/VX_afu_wrap.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "C_S_AXI_CTRL_ADDR_WIDTH",
+        "C_S_AXI_CTRL_DATA_WIDTH",
+        "C_M_AXI_MEM_ID_WIDTH",
+        "C_M_AXI_MEM_DATA_WIDTH",
+        "C_M_AXI_MEM_ADDR_WIDTH",
+        "C_M_AXI_MEM_NUM_BANKS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_allocator",
+      "file_path": "hw/rtl/libs/VX_allocator.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "SIZE",
+        "ADDRW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_alu_int",
+      "file_path": "hw/rtl/core/VX_alu_int.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BLOCK_IDX",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_alu_muldiv",
+      "file_path": "hw/rtl/core/VX_alu_muldiv.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_alu_unit",
+      "file_path": "hw/rtl/core/VX_alu_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_avs_adapter",
+      "file_path": "hw/rtl/libs/VX_avs_adapter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATA_WIDTH",
+        "ADDR_WIDTH_IN",
+        "ADDR_WIDTH_OUT",
+        "BURST_WIDTH",
+        "NUM_BANKS",
+        "TAG_WIDTH",
+        "RD_QUEUE_SIZE",
+        "BANK_INTERLEAVE",
+        "REQ_OUT_BUF",
+        "RSP_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_axi_adapter",
+      "file_path": "hw/rtl/libs/VX_axi_adapter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATA_WIDTH",
+        "ADDR_WIDTH_IN",
+        "ADDR_WIDTH_OUT",
+        "TAG_WIDTH_IN",
+        "TAG_WIDTH_OUT",
+        "NUM_BANKS",
+        "BANK_INTERLEAVE",
+        "TAG_BUFFER_SIZE",
+        "RSP_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_axi_write_ack",
+      "file_path": "hw/rtl/libs/VX_axi_write_ack.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_afu_wrap",
+        "VX_axi_adapter"
+      ]
+    },
+    {
+      "module_name": "VX_bank_flush",
+      "file_path": "hw/rtl/cache/VX_bank_flush.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BANK_ID",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WRITEBACK"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_bits_insert",
+      "file_path": "hw/rtl/libs/VX_bits_insert.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "S",
+        "POS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_bits_remove",
+      "file_path": "hw/rtl/libs/VX_bits_remove.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "S",
+        "POS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_blend_func",
+      "file_path": "hw/rtl/om/VX_om_blend_func.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "INDEX"
+      ],
+      "instantiated_by": [
+        "VX_om_blend_func"
+      ]
+    },
+    {
+      "module_name": "VX_bypass_buffer",
+      "file_path": "hw/rtl/libs/VX_bypass_buffer.sv",
+      "language": "sv",
+      "line": 25,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "PASSTHRU"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache",
+      "file_path": "hw/rtl/cache/VX_cache.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WORD_SIZE",
+        "CRSQ_SIZE",
+        "MSHR_SIZE",
+        "MRSQ_SIZE",
+        "MREQ_SIZE",
+        "WRITE_ENABLE",
+        "WRITEBACK",
+        "DIRTY_BYTES",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "CORE_OUT_BUF",
+        "MEM_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_bank",
+      "file_path": "hw/rtl/cache/VX_cache_bank.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BANK_ID",
+        "NUM_REQS",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WORD_SIZE",
+        "CRSQ_SIZE",
+        "MSHR_SIZE",
+        "MREQ_SIZE",
+        "WRITE_ENABLE",
+        "WRITEBACK",
+        "DIRTY_BYTES",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "CORE_OUT_REG",
+        "MEM_OUT_REG",
+        "MSHR_ADDR_WIDTH",
+        "MEM_TAG_WIDTH",
+        "REQ_SEL_WIDTH",
+        "WORD_SEL_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_bypass",
+      "file_path": "hw/rtl/cache/VX_cache_bypass.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "TAG_SEL_IDX",
+        "PASSTHRU",
+        "NC_ENABLE",
+        "WORD_SIZE",
+        "LINE_SIZE",
+        "CORE_ADDR_WIDTH",
+        "CORE_TAG_WIDTH",
+        "MEM_ADDR_WIDTH",
+        "MEM_TAG_IN_WIDTH",
+        "MEM_TAG_OUT_WIDTH",
+        "UUID_WIDTH",
+        "CORE_OUT_BUF",
+        "MEM_OUT_BUF",
+        "CORE_DATA_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_cluster",
+      "file_path": "hw/rtl/cache/VX_cache_cluster.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_UNITS",
+        "NUM_INPUTS",
+        "TAG_SEL_IDX",
+        "NUM_REQS",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WORD_SIZE",
+        "CRSQ_SIZE",
+        "MSHR_SIZE",
+        "MRSQ_SIZE",
+        "MREQ_SIZE",
+        "WRITE_ENABLE",
+        "WRITEBACK",
+        "DIRTY_BYTES",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "NC_ENABLE",
+        "CORE_OUT_BUF",
+        "MEM_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_data",
+      "file_path": "hw/rtl/cache/VX_cache_data.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BANK_ID",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WORD_SIZE",
+        "WRITE_ENABLE",
+        "WRITEBACK",
+        "DIRTY_BYTES",
+        "UUID_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_flush",
+      "file_path": "hw/rtl/cache/VX_cache_flush.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "NUM_BANKS",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "BANK_SEL_LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_mshr",
+      "file_path": "hw/rtl/cache/VX_cache_mshr.sv",
+      "language": "sv",
+      "line": 58,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BANK_ID",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "MSHR_SIZE",
+        "UUID_WIDTH",
+        "DATA_WIDTH",
+        "MSHR_ADDR_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_tags",
+      "file_path": "hw/rtl/cache/VX_cache_tags.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BANK_ID",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WORD_SIZE",
+        "WRITEBACK",
+        "UUID_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_top",
+      "file_path": "hw/rtl/cache/VX_cache_top.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WORD_SIZE",
+        "CRSQ_SIZE",
+        "MSHR_SIZE",
+        "MRSQ_SIZE",
+        "MREQ_SIZE",
+        "WRITE_ENABLE",
+        "WRITEBACK",
+        "DIRTY_BYTES",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "CORE_OUT_BUF",
+        "MEM_OUT_BUF",
+        "MEM_TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cache_wrap",
+      "file_path": "hw/rtl/cache/VX_cache_wrap.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "TAG_SEL_IDX",
+        "NUM_REQS",
+        "CACHE_SIZE",
+        "LINE_SIZE",
+        "NUM_BANKS",
+        "NUM_WAYS",
+        "WORD_SIZE",
+        "CRSQ_SIZE",
+        "MSHR_SIZE",
+        "MRSQ_SIZE",
+        "MREQ_SIZE",
+        "WRITE_ENABLE",
+        "WRITEBACK",
+        "DIRTY_BYTES",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "NC_ENABLE",
+        "PASSTHRU",
+        "CORE_OUT_BUF",
+        "MEM_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cluster",
+      "file_path": "hw/rtl/VX_cluster.sv",
+      "language": "sv",
+      "line": 34,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CLUSTER_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_commit",
+      "file_path": "hw/rtl/core/VX_commit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_core",
+      "file_path": "hw/rtl/core/VX_core.sv",
+      "language": "sv",
+      "line": 32,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_core_top",
+      "file_path": "hw/rtl/core/VX_core_top.sv",
+      "language": "sv",
+      "line": 20,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_csr_data",
+      "file_path": "hw/rtl/core/VX_csr_data.sv",
+      "language": "sv",
+      "line": 29,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_csr_unit",
+      "file_path": "hw/rtl/core/VX_csr_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_cyclic_arbiter",
+      "file_path": "hw/rtl/libs/VX_cyclic_arbiter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "LOG_NUM_REQS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_dcr_data",
+      "file_path": "hw/rtl/core/VX_dcr_data.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_core"
+      ]
+    },
+    {
+      "module_name": "VX_decode",
+      "file_path": "hw/rtl/core/VX_decode.sv",
+      "language": "sv",
+      "line": 30,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_decoder",
+      "file_path": "hw/rtl/libs/VX_decoder.sv",
+      "language": "sv",
+      "line": 20,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "M",
+        "MODEL",
+        "D"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_dispatch",
+      "file_path": "hw/rtl/core/VX_dispatch.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_dispatch_unit",
+      "file_path": "hw/rtl/core/VX_dispatch_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BLOCK_SIZE",
+        "NUM_LANES",
+        "OUT_BUF",
+        "MAX_FANOUT"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_divider",
+      "file_path": "hw/rtl/libs/VX_divider.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N_WIDTH",
+        "D_WIDTH",
+        "Q_WIDTH",
+        "R_WIDTH",
+        "N_SIGNED",
+        "D_SIGNED",
+        "LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_dp_ram",
+      "file_path": "hw/rtl/libs/VX_dp_ram.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "SIZE",
+        "WRENW",
+        "OUT_REG",
+        "LUTRAM",
+        "NO_RWCHECK",
+        "RW_ASSERT",
+        "RESET_RAM",
+        "RESET_OUT",
+        "READ_ENABLE",
+        "INIT_ENABLE",
+        "INIT_FILE",
+        "ADDRW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_edge_trigger",
+      "file_path": "hw/rtl/libs/VX_edge_trigger.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "POS",
+        "INIT"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_elastic_adapter",
+      "file_path": "hw/rtl/libs/VX_elastic_adapter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_alu_muldiv"
+      ]
+    },
+    {
+      "module_name": "VX_elastic_buffer",
+      "file_path": "hw/rtl/libs/VX_elastic_buffer.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "SIZE",
+        "OUT_REG",
+        "LUTRAM"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_encoder",
+      "file_path": "hw/rtl/libs/VX_encoder.sv",
+      "language": "sv",
+      "line": 20,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "REVERSE",
+        "MODEL",
+        "LN"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_execute",
+      "file_path": "hw/rtl/core/VX_execute.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fcvt_unit",
+      "file_path": "hw/rtl/fpu/VX_fcvt_unit.sv",
+      "language": "sv",
+      "line": 21,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "LATENCY",
+        "INT_WIDTH",
+        "MAN_BITS",
+        "EXP_BITS",
+        "OUT_REG"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fetch",
+      "file_path": "hw/rtl/core/VX_fetch.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fifo_queue",
+      "file_path": "hw/rtl/libs/VX_fifo_queue.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "DEPTH",
+        "ALM_FULL",
+        "ALM_EMPTY",
+        "OUT_REG",
+        "LUTRAM",
+        "SIZEW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_find_first",
+      "file_path": "hw/rtl/libs/VX_find_first.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "DATAW",
+        "REVERSE"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fncp_unit",
+      "file_path": "hw/rtl/fpu/VX_fncp_unit.sv",
+      "language": "sv",
+      "line": 21,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "LATENCY",
+        "EXP_BITS",
+        "MAN_BITS",
+        "OUT_REG"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fp_classifier",
+      "file_path": "hw/rtl/fpu/VX_fp_classifier.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "MAN_BITS",
+        "EXP_BITS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fp_rounding",
+      "file_path": "hw/rtl/fpu/VX_fp_rounding.sv",
+      "language": "sv",
+      "line": 21,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "DAT_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_cvt",
+      "file_path": "hw/rtl/fpu/VX_fpu_cvt.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "NUM_LANES",
+        "NUM_PES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_div",
+      "file_path": "hw/rtl/fpu/VX_fpu_div.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "NUM_LANES",
+        "NUM_PES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_dpi",
+      "file_path": "hw/rtl/fpu/VX_fpu_dpi.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DPI",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_dsp",
+      "file_path": "hw/rtl/fpu/VX_fpu_dsp.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_fma",
+      "file_path": "hw/rtl/fpu/VX_fpu_fma.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "NUM_LANES",
+        "NUM_PES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_fpnew",
+      "file_path": "hw/rtl/fpu/VX_fpu_fpnew.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_FPNEW",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_ncp",
+      "file_path": "hw/rtl/fpu/VX_fpu_ncp.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "NUM_LANES",
+        "NUM_PES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_sqrt",
+      "file_path": "hw/rtl/fpu/VX_fpu_sqrt.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "FPU_DSP",
+      "parameters": [
+        "NUM_LANES",
+        "NUM_PES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_fpu_unit",
+      "file_path": "hw/rtl/core/VX_fpu_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_gather_unit",
+      "file_path": "hw/rtl/core/VX_gather_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BLOCK_SIZE",
+        "NUM_LANES",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_gbar_arb",
+      "file_path": "hw/rtl/mem/VX_gbar_arb.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_gbar_unit",
+      "file_path": "hw/rtl/mem/VX_gbar_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_generic_arbiter",
+      "file_path": "hw/rtl/libs/VX_generic_arbiter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "LOG_NUM_REQS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_graphics",
+      "file_path": "hw/rtl/VX_graphics.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CLUSTER_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_ibuffer",
+      "file_path": "hw/rtl/core/VX_ibuffer.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_index_buffer",
+      "file_path": "hw/rtl/libs/VX_index_buffer.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "SIZE",
+        "LUTRAM",
+        "ADDRW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_index_queue",
+      "file_path": "hw/rtl/libs/VX_index_queue.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "SIZE"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_ipdom_stack",
+      "file_path": "hw/rtl/core/VX_ipdom_stack.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "WIDTH",
+        "DEPTH",
+        "OUT_REG",
+        "ADDRW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_issue",
+      "file_path": "hw/rtl/core/VX_issue.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_issue_slice",
+      "file_path": "hw/rtl/core/VX_issue_slice.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "ISSUE_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_issue_top",
+      "file_path": "hw/rtl/core/VX_issue_top.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_lmem_switch",
+      "file_path": "hw/rtl/mem/VX_lmem_switch.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "REQ0_OUT_BUF",
+        "REQ1_OUT_BUF",
+        "RSP_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_local_mem",
+      "file_path": "hw/rtl/mem/VX_local_mem.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "SIZE",
+        "NUM_REQS",
+        "NUM_BANKS",
+        "ADDR_WIDTH",
+        "WORD_SIZE",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_local_mem_top",
+      "file_path": "hw/rtl/mem/VX_local_mem_top.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "SIZE",
+        "NUM_REQS",
+        "NUM_BANKS",
+        "WORD_SIZE",
+        "UUID_WIDTH",
+        "TAG_WIDTH",
+        "NUM_WORDS",
+        "WORDS_PER_BANK",
+        "BANK_ADDR_WIDTH",
+        "ADDR_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_lsu_adapter",
+      "file_path": "hw/rtl/mem/VX_lsu_adapter.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES",
+        "DATA_SIZE",
+        "TAG_WIDTH",
+        "TAG_SEL_BITS",
+        "REQ_OUT_BUF",
+        "RSP_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_lsu_slice",
+      "file_path": "hw/rtl/core/VX_lsu_slice.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_lsu_unit",
+      "file_path": "hw/rtl/core/VX_lsu_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_lzc",
+      "file_path": "hw/rtl/libs/VX_lzc.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "REVERSE",
+        "LOGN"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_matrix_arbiter",
+      "file_path": "hw/rtl/libs/VX_matrix_arbiter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "LOG_NUM_REQS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mem_adapter",
+      "file_path": "hw/rtl/libs/VX_mem_adapter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "SRC_DATA_WIDTH",
+        "SRC_ADDR_WIDTH",
+        "DST_DATA_WIDTH",
+        "DST_ADDR_WIDTH",
+        "SRC_TAG_WIDTH",
+        "DST_TAG_WIDTH",
+        "REQ_OUT_BUF",
+        "RSP_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mem_arb",
+      "file_path": "hw/rtl/mem/VX_mem_arb.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_INPUTS",
+        "NUM_OUTPUTS",
+        "DATA_SIZE",
+        "MEM_ADDR_WIDTH",
+        "ADDR_WIDTH",
+        "TAG_WIDTH",
+        "TAG_SEL_IDX",
+        "REQ_OUT_BUF",
+        "RSP_OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mem_coalescer",
+      "file_path": "hw/rtl/libs/VX_mem_coalescer.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "ADDR_WIDTH",
+        "FLAGS_WIDTH",
+        "DATA_IN_SIZE",
+        "DATA_OUT_SIZE",
+        "TAG_WIDTH",
+        "UUID_WIDTH",
+        "QUEUE_SIZE",
+        "DATA_IN_WIDTH",
+        "DATA_OUT_WIDTH",
+        "DATA_RATIO",
+        "DATA_RATIO_W",
+        "OUT_REQS",
+        "OUT_ADDR_WIDTH",
+        "QUEUE_ADDRW",
+        "OUT_TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mem_scheduler",
+      "file_path": "hw/rtl/libs/VX_mem_scheduler.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_REQS",
+        "MEM_CHANNELS",
+        "WORD_SIZE",
+        "LINE_SIZE",
+        "ADDR_WIDTH",
+        "FLAGS_WIDTH",
+        "TAG_WIDTH",
+        "UUID_WIDTH",
+        "CORE_QUEUE_SIZE",
+        "MEM_QUEUE_SIZE",
+        "RSP_PARTIAL",
+        "CORE_OUT_BUF",
+        "MEM_OUT_BUF",
+        "WORD_WIDTH",
+        "LINE_WIDTH",
+        "COALESCE_ENABLE",
+        "PER_LINE_REQS",
+        "MERGED_REQS",
+        "MEM_BATCHES",
+        "MEM_BATCH_BITS",
+        "MEM_QUEUE_ADDRW",
+        "MEM_ADDR_WIDTH",
+        "MEM_TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mem_switch",
+      "file_path": "hw/rtl/mem/VX_mem_switch.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "DATA_SIZE",
+        "TAG_WIDTH",
+        "ADDR_WIDTH",
+        "REQ_OUT_BUF",
+        "RSP_OUT_BUF",
+        "LOG_NUM_REQS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mem_unit",
+      "file_path": "hw/rtl/core/VX_mem_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mem_unit_top",
+      "file_path": "hw/rtl/core/VX_mem_unit_top.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LSU_WORD_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_multiplier",
+      "file_path": "hw/rtl/libs/VX_multiplier.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "A_WIDTH",
+        "B_WIDTH",
+        "R_WIDTH",
+        "SIGNED",
+        "LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_mux",
+      "file_path": "hw/rtl/libs/VX_mux.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "N",
+        "LN"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_agent",
+      "file_path": "hw/rtl/om/VX_om_agent.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_arb",
+      "file_path": "hw/rtl/om/VX_om_arb.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_INPUTS",
+        "NUM_OUTPUTS",
+        "NUM_LANES",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_blend",
+      "file_path": "hw/rtl/om/VX_om_blend.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": [
+        "testbench"
+      ]
+    },
+    {
+      "module_name": "VX_om_blend_func",
+      "file_path": "hw/rtl/om/VX_om_blend_func.sv",
+      "language": "sv",
+      "line": 63,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_om_blend"
+      ]
+    },
+    {
+      "module_name": "VX_om_blend_minmax",
+      "file_path": "hw/rtl/om/VX_om_blend_minmax.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_blend_multadd",
+      "file_path": "hw/rtl/om/VX_om_blend_multadd.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_compare",
+      "file_path": "hw/rtl/om/VX_om_compare.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_csr",
+      "file_path": "hw/rtl/om/VX_om_csr.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_dcr",
+      "file_path": "hw/rtl/om/VX_om_dcr.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_ds",
+      "file_path": "hw/rtl/om/VX_om_ds.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_logic_op",
+      "file_path": "hw/rtl/om/VX_om_logic_op.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_mem",
+      "file_path": "hw/rtl/om/VX_om_mem.sv",
+      "language": "sv",
+      "line": 19,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_stencil_op",
+      "file_path": "hw/rtl/om/VX_om_stencil_op.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_unit",
+      "file_path": "hw/rtl/om/VX_om_unit.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_om_unit_top",
+      "file_path": "hw/rtl/om/VX_om_unit_top.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_onehot_mux",
+      "file_path": "hw/rtl/libs/VX_onehot_mux.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "N",
+        "MODEL",
+        "LUT_OPT"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_onehot_shift",
+      "file_path": "hw/rtl/libs/VX_onehot_shift.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "M"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_operands",
+      "file_path": "hw/rtl/core/VX_operands.sv",
+      "language": "sv",
+      "line": 23,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_BANKS",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_pe_serializer",
+      "file_path": "hw/rtl/libs/VX_pe_serializer.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES",
+        "NUM_PES",
+        "LATENCY",
+        "DATA_IN_WIDTH",
+        "DATA_OUT_WIDTH",
+        "TAG_WIDTH",
+        "PE_REG",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_pe_switch",
+      "file_path": "hw/rtl/core/VX_pe_switch.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "PE_COUNT",
+        "NUM_LANES",
+        "REQ_OUT_BUF",
+        "RSP_OUT_BUF",
+        "PE_SEL_BITS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_pending_size",
+      "file_path": "hw/rtl/libs/VX_pending_size.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "SIZE",
+        "INCRW",
+        "DECRW",
+        "ALM_FULL",
+        "ALM_EMPTY",
+        "SIZEW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_pipe_buffer",
+      "file_path": "hw/rtl/libs/VX_pipe_buffer.sv",
+      "language": "sv",
+      "line": 26,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "RESETW",
+        "DEPTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_pipe_register",
+      "file_path": "hw/rtl/libs/VX_pipe_register.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "RESETW",
+        "DEPTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_popcount",
+      "file_path": "hw/rtl/libs/VX_popcount.sv",
+      "language": "sv",
+      "line": 88,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "MODEL",
+        "N",
+        "M"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_popcount32",
+      "file_path": "hw/rtl/libs/VX_popcount.sv",
+      "language": "sv",
+      "line": 45,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_popcount"
+      ]
+    },
+    {
+      "module_name": "VX_popcount63",
+      "file_path": "hw/rtl/libs/VX_popcount.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_popcount"
+      ]
+    },
+    {
+      "module_name": "VX_priority_arbiter",
+      "file_path": "hw/rtl/libs/VX_priority_arbiter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "LOG_NUM_REQS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_priority_encoder",
+      "file_path": "hw/rtl/libs/VX_priority_encoder.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "REVERSE",
+        "MODEL",
+        "LN"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_agent",
+      "file_path": "hw/rtl/raster/VX_raster_agent.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_arb",
+      "file_path": "hw/rtl/raster/VX_raster_arb.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_INPUTS",
+        "NUM_OUTPUTS",
+        "NUM_LANES",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_be",
+      "file_path": "hw/rtl/raster/VX_raster_be.sv",
+      "language": "sv",
+      "line": 23,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "BLOCK_LOGSIZE",
+        "OUTPUT_QUADS",
+        "QUAD_FIFO_DEPTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_csr",
+      "file_path": "hw/rtl/raster/VX_raster_csr.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "NUM_LANES",
+        "PID_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_dcr",
+      "file_path": "hw/rtl/raster/VX_raster_dcr.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_edge",
+      "file_path": "hw/rtl/raster/VX_raster_edge.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_extents",
+      "file_path": "hw/rtl/raster/VX_raster_extents.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "TILE_LOGSIZE"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_mem",
+      "file_path": "hw/rtl/raster/VX_raster_mem.sv",
+      "language": "sv",
+      "line": 24,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "INSTANCE_IDX",
+        "NUM_INSTANCES",
+        "TILE_LOGSIZE",
+        "QUEUE_SIZE"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_qe",
+      "file_path": "hw/rtl/raster/VX_raster_qe.sv",
+      "language": "sv",
+      "line": 23,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_QUADS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_slice",
+      "file_path": "hw/rtl/raster/VX_raster_slice.sv",
+      "language": "sv",
+      "line": 24,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "TILE_LOGSIZE",
+        "BLOCK_LOGSIZE",
+        "OUTPUT_QUADS",
+        "QUAD_FIFO_DEPTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_te",
+      "file_path": "hw/rtl/raster/VX_raster_te.sv",
+      "language": "sv",
+      "line": 24,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "TILE_LOGSIZE",
+        "BLOCK_LOGSIZE"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_unit",
+      "file_path": "hw/rtl/raster/VX_raster_unit.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "INSTANCE_IDX",
+        "NUM_INSTANCES",
+        "NUM_SLICES",
+        "TILE_LOGSIZE",
+        "BLOCK_LOGSIZE",
+        "MEM_FIFO_DEPTH",
+        "QUAD_FIFO_DEPTH",
+        "OUTPUT_QUADS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_raster_unit_top",
+      "file_path": "hw/rtl/raster/VX_raster_unit_top.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "INSTANCE_IDX",
+        "NUM_INSTANCES",
+        "NUM_SLICES",
+        "TILE_LOGSIZE",
+        "BLOCK_LOGSIZE",
+        "MEM_FIFO_DEPTH",
+        "QUAD_FIFO_DEPTH",
+        "OUTPUT_QUADS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_reduce",
+      "file_path": "hw/rtl/libs/VX_reduce.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW_IN",
+        "DATAW_OUT",
+        "N"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_reset_relay",
+      "file_path": "hw/rtl/libs/VX_reset_relay.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "MAX_FANOUT"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_rr_arbiter",
+      "file_path": "hw/rtl/libs/VX_rr_arbiter.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "MODEL",
+        "LOG_NUM_REQS",
+        "LUT_OPT"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_scan",
+      "file_path": "hw/rtl/libs/VX_scan.sv",
+      "language": "sv",
+      "line": 20,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N",
+        "REVERSE"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_schedule",
+      "file_path": "hw/rtl/core/VX_schedule.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_scope_switch",
+      "file_path": "hw/rtl/libs/VX_scope_switch.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "N"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_scope_tap",
+      "file_path": "hw/rtl/libs/VX_scope_tap.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "SCOPE_ID",
+        "SCOPE_IDW",
+        "XTRIGGERW",
+        "HTRIGGERW",
+        "PROBEW",
+        "DEPTH",
+        "IDLE_CTRW",
+        "TX_DATAW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_scoreboard",
+      "file_path": "hw/rtl/core/VX_scoreboard.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_serial_div",
+      "file_path": "hw/rtl/libs/VX_serial_div.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "WIDTHN",
+        "WIDTHD",
+        "WIDTHQ",
+        "WIDTHR",
+        "LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_serial_mul",
+      "file_path": "hw/rtl/libs/VX_serial_mul.sv",
+      "language": "sv",
+      "line": 21,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "A_WIDTH",
+        "B_WIDTH",
+        "R_WIDTH",
+        "SIGNED",
+        "LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_sfu_unit",
+      "file_path": "hw/rtl/core/VX_sfu_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_shift_register",
+      "file_path": "hw/rtl/libs/VX_shift_register.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "RESETW",
+        "DEPTH",
+        "NUM_TAPS",
+        "TAP_START",
+        "TAP_STRIDE"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_skid_buffer",
+      "file_path": "hw/rtl/libs/VX_skid_buffer.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "PASSTHRU",
+        "HALF_BW",
+        "OUT_REG"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_socket",
+      "file_path": "hw/rtl/VX_socket.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "SOCKET_ID"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_sp_ram",
+      "file_path": "hw/rtl/libs/VX_sp_ram.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "SIZE",
+        "WRENW",
+        "OUT_REG",
+        "LUTRAM",
+        "NO_RWCHECK",
+        "RW_ASSERT",
+        "RESET_RAM",
+        "RESET_OUT",
+        "READ_ENABLE",
+        "INIT_ENABLE",
+        "INIT_FILE",
+        "ADDRW"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_split_join",
+      "file_path": "hw/rtl/core/VX_split_join.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_stream_arb",
+      "file_path": "hw/rtl/libs/VX_stream_arb.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_INPUTS",
+        "NUM_OUTPUTS",
+        "DATAW",
+        "MAX_FANOUT",
+        "OUT_BUF",
+        "NUM_REQS",
+        "LOG_NUM_REQS",
+        "NUM_REQS_W"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_stream_buffer",
+      "file_path": "hw/rtl/libs/VX_stream_buffer.sv",
+      "language": "sv",
+      "line": 26,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "OUT_REG",
+        "PASSTHRU"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_stream_pack",
+      "file_path": "hw/rtl/libs/VX_stream_pack.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "DATA_WIDTH",
+        "TAG_WIDTH",
+        "TAG_SEL_BITS",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_stream_switch",
+      "file_path": "hw/rtl/libs/VX_stream_switch.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_INPUTS",
+        "NUM_OUTPUTS",
+        "DATAW",
+        "OUT_BUF",
+        "NUM_REQS",
+        "SEL_COUNT",
+        "LOG_NUM_REQS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_stream_unpack",
+      "file_path": "hw/rtl/libs/VX_stream_unpack.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_REQS",
+        "DATA_WIDTH",
+        "TAG_WIDTH",
+        "OUT_BUF"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_stream_xbar",
+      "file_path": "hw/rtl/libs/VX_stream_xbar.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_INPUTS",
+        "NUM_OUTPUTS",
+        "DATAW",
+        "IN_WIDTH",
+        "OUT_WIDTH",
+        "ARBITER",
+        "OUT_BUF",
+        "MAX_FANOUT",
+        "PERF_CTR_BITS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_sum33",
+      "file_path": "hw/rtl/libs/VX_popcount.sv",
+      "language": "sv",
+      "line": 59,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_popcount"
+      ]
+    },
+    {
+      "module_name": "VX_tex_addr",
+      "file_path": "hw/rtl/tex/VX_tex_addr.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "REQ_TAGW",
+        "NUM_LANES",
+        "W_ADDR_BITS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_agent",
+      "file_path": "hw/rtl/tex/VX_tex_agent.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_arb",
+      "file_path": "hw/rtl/tex/VX_tex_arb.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_INPUTS",
+        "NUM_OUTPUTS",
+        "NUM_LANES",
+        "TAG_WIDTH",
+        "TAG_SEL_IDX",
+        "OUT_BUF_REQ",
+        "OUT_BUF_RSP"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_csr",
+      "file_path": "hw/rtl/tex/VX_tex_csr.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_dcr",
+      "file_path": "hw/rtl/tex/VX_tex_dcr.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_STAGES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_format",
+      "file_path": "hw/rtl/tex/VX_tex_format.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_tex_sampler"
+      ]
+    },
+    {
+      "module_name": "VX_tex_lerp",
+      "file_path": "hw/rtl/tex/VX_tex_lerp.sv",
+      "language": "sv",
+      "line": 19,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LATENCY"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_mem",
+      "file_path": "hw/rtl/tex/VX_tex_mem.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "REQ_TAGW",
+        "NUM_LANES",
+        "W_ADDR_BITS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_sampler",
+      "file_path": "hw/rtl/tex/VX_tex_sampler.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "REQ_TAGW",
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_sat",
+      "file_path": "hw/rtl/tex/VX_tex_sat.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "IN_W",
+        "OUT_W",
+        "MODEL"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_stride",
+      "file_path": "hw/rtl/tex/VX_tex_stride.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_tex_addr"
+      ]
+    },
+    {
+      "module_name": "VX_tex_unit",
+      "file_path": "hw/rtl/tex/VX_tex_unit.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_unit_top",
+      "file_path": "hw/rtl/tex/VX_tex_unit_top.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES",
+        "TAG_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_tex_wrap",
+      "file_path": "hw/rtl/tex/VX_tex_wrap.sv",
+      "language": "sv",
+      "line": 18,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "VX_tex_addr"
+      ]
+    },
+    {
+      "module_name": "VX_toggle_buffer",
+      "file_path": "hw/rtl/libs/VX_toggle_buffer.sv",
+      "language": "sv",
+      "line": 26,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "PASSTHRU"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_transpose",
+      "file_path": "hw/rtl/libs/VX_transpose.sv",
+      "language": "sv",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "DATAW",
+        "N",
+        "M"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_uuid_gen",
+      "file_path": "hw/rtl/core/VX_uuid_gen.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "CORE_ID",
+        "UUID_WIDTH"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "VX_wctl_unit",
+      "file_path": "hw/rtl/core/VX_wctl_unit.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LANES"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "Vortex",
+      "file_path": "hw/rtl/Vortex.sv",
+      "language": "sv",
+      "line": 28,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "Vortex_axi",
+        "vortex_afu",
+        "vortex_tb"
+      ]
+    },
+    {
+      "module_name": "Vortex_axi",
+      "file_path": "hw/rtl/Vortex_axi.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "AXI_DATA_WIDTH",
+        "AXI_ADDR_WIDTH",
+        "AXI_TID_WIDTH",
+        "AXI_NUM_BANKS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "Vortex_top",
+      "file_path": "hw/syn/xilinx/sandbox/Vortex_top.v",
+      "language": "v",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "C_M_AXI_GMEM_DATA_WIDTH",
+        "C_M_AXI_GMEM_ADDR_WIDTH",
+        "C_M_AXI_GMEM_ID_WIDTH",
+        "C_M_AXI_MEM_NUM_BANKS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "Vortex_wrap",
+      "file_path": "hw/syn/xilinx/sandbox/Vortex_wrap.sv",
+      "language": "sv",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "C_M_AXI_GMEM_DATA_WIDTH",
+        "C_M_AXI_GMEM_ADDR_WIDTH",
+        "C_M_AXI_GMEM_ID_WIDTH",
+        "C_M_AXI_MEM_NUM_BANKS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "ccip_interface_reg",
+      "file_path": "hw/rtl/afu/opae/ccip_interface_reg.sv",
+      "language": "sv",
+      "line": 6,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "ccip_std_afu",
+      "file_path": "hw/rtl/afu/opae/ccip_std_afu.sv",
+      "language": "sv",
+      "line": 14,
+      "guarded_by_ifdef": "!NOPAE",
+      "parameters": [
+        "NUM_LOCAL_MEM_BANKS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "datapath_latch_rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 63,
+      "guarded_by_ifdef": "ARM_HVM_MODEL",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_128x128_wm1"
+      ]
+    },
+    {
+      "module_name": "datapath_latch_rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 64,
+      "guarded_by_ifdef": "ARM_HVM_MODEL",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_256x128_wm1"
+      ]
+    },
+    {
+      "module_name": "datapath_latch_rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 64,
+      "guarded_by_ifdef": "ARM_HVM_MODEL",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_256x19_wm0"
+      ]
+    },
+    {
+      "module_name": "datapath_latch_rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 59,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_32x128_wm1"
+      ]
+    },
+    {
+      "module_name": "datapath_latch_rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 75,
+      "guarded_by_ifdef": "ARM_HVM_MODEL",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_32x128_wm1"
+      ]
+    },
+    {
+      "module_name": "datapath_latch_rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 62,
+      "guarded_by_ifdef": "ARM_HVM_MODEL",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_32x19_wm0"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 120,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 124,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 2531,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 2535,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 15360,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 15364,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 17516,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 17520,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1_error_injection",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v",
+      "language": "v",
+      "line": 30066,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LEFT_RED_COLUMN_FAULT",
+        "RIGHT_RED_COLUMN_FAULT",
+        "NO_RED_FAULT"
+      ],
+      "instantiated_by": [
+        "rf2_128x128_wm1"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1_fr_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1_rtl.v",
+      "language": "v",
+      "line": 160,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_128x128_wm1_rtl_top"
+      ]
+    },
+    {
+      "module_name": "rf2_128x128_wm1_rtl_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1_rtl.v",
+      "language": "v",
+      "line": 45,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 121,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 125,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 2538,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 2542,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 15425,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 15429,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 17587,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 17591,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1_error_injection",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v",
+      "language": "v",
+      "line": 30195,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LEFT_RED_COLUMN_FAULT",
+        "RIGHT_RED_COLUMN_FAULT",
+        "NO_RED_FAULT"
+      ],
+      "instantiated_by": [
+        "rf2_256x128_wm1"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1_fr_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1_rtl.v",
+      "language": "v",
+      "line": 160,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_256x128_wm1_rtl_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x128_wm1_rtl_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1_rtl.v",
+      "language": "v",
+      "line": 45,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 121,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 125,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 1272,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 1276,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 4375,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 4379,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 5497,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 5501,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0_error_injection",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v",
+      "language": "v",
+      "line": 8555,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LEFT_RED_COLUMN_FAULT",
+        "RIGHT_RED_COLUMN_FAULT",
+        "NO_RED_FAULT"
+      ],
+      "instantiated_by": [
+        "rf2_256x19_wm0"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0_fr_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0_rtl.v",
+      "language": "v",
+      "line": 151,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_256x19_wm0_rtl_top"
+      ]
+    },
+    {
+      "module_name": "rf2_256x19_wm0_rtl_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0_rtl.v",
+      "language": "v",
+      "line": 45,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 116,
+      "guarded_by_ifdef": "ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 120,
+      "guarded_by_ifdef": "ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 2520,
+      "guarded_by_ifdef": "else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 2524,
+      "guarded_by_ifdef": "else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 132,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 136,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 2531,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 2535,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 15243,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 15247,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 17387,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 17391,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1_fr_top",
+        "rf2_32x128_wm1_tb"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1_error_injection",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 15219,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LEFT_RED_COLUMN_FAULT",
+        "RIGHT_RED_COLUMN_FAULT",
+        "NO_RED_FAULT"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1_error_injection",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v",
+      "language": "v",
+      "line": 29820,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LEFT_RED_COLUMN_FAULT",
+        "RIGHT_RED_COLUMN_FAULT",
+        "NO_RED_FAULT"
+      ],
+      "instantiated_by": [
+        "rf2_32x128_wm1"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1_fr_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v",
+      "language": "v",
+      "line": 160,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_32x128_wm1_rtl_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1_fr_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v",
+      "language": "v",
+      "line": 160,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_32x128_wm1_rtl_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x128_wm1_rtl_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v",
+      "language": "v",
+      "line": 45,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "rf2_32x128_wm1_rtl_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v",
+      "language": "v",
+      "line": 45,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "rf2_32x128_wm1_tb",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/vsim/rf2_32x128_wm1_tb.v",
+      "language": "v",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "rf2_32x128_wm1_tb",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/vsim/rf2_32x128_wm1_tb.v",
+      "language": "v",
+      "line": 17,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 119,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 123,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 1252,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 1256,
+      "guarded_by_ifdef": "ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 4180,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 4184,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 5284,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 5288,
+      "guarded_by_ifdef": "else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS",
+      "parameters": [
+        "ASSERT_PREFIX",
+        "BITS",
+        "WORDS",
+        "MUX",
+        "MEM_WIDTH",
+        "MEM_HEIGHT",
+        "WP_SIZE",
+        "UPM_WIDTH",
+        "UPMW_WIDTH",
+        "UPMS_WIDTH"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0_fr_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0_error_injection",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v",
+      "language": "v",
+      "line": 8167,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "LEFT_RED_COLUMN_FAULT",
+        "RIGHT_RED_COLUMN_FAULT",
+        "NO_RED_FAULT"
+      ],
+      "instantiated_by": [
+        "rf2_32x19_wm0"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0_fr_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0_rtl.v",
+      "language": "v",
+      "line": 151,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": [
+        "rf2_32x19_wm0_rtl_top"
+      ]
+    },
+    {
+      "module_name": "rf2_32x19_wm0_rtl_top",
+      "file_path": "hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0_rtl.v",
+      "language": "v",
+      "line": 45,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "testbench",
+      "file_path": "hw/syn/xilinx/sandbox/testbench.v",
+      "language": "v",
+      "line": 20,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "testbench",
+      "file_path": "hw/unit_tests/rop_unit/blending/blend_tb.sv",
+      "language": "sv",
+      "line": 7,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "vortex_afu",
+      "file_path": "hw/rtl/afu/opae/vortex_afu.sv",
+      "language": "sv",
+      "line": 25,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "NUM_LOCAL_MEM_BANKS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "vortex_afu",
+      "file_path": "hw/rtl/afu/xrt/vortex_afu.v",
+      "language": "v",
+      "line": 16,
+      "guarded_by_ifdef": "",
+      "parameters": [
+        "C_S_AXI_CTRL_ADDR_WIDTH",
+        "C_S_AXI_CTRL_DATA_WIDTH",
+        "C_M_AXI_MEM_ID_WIDTH",
+        "C_M_AXI_MEM_DATA_WIDTH",
+        "C_M_AXI_MEM_ADDR_WIDTH",
+        "C_M_AXI_MEM_NUM_BANKS"
+      ],
+      "instantiated_by": []
+    },
+    {
+      "module_name": "vortex_tb",
+      "file_path": "hw/syn/modelsim/vortex_tb.v",
+      "language": "v",
+      "line": 59,
+      "guarded_by_ifdef": "",
+      "parameters": [],
+      "instantiated_by": []
+    }
+  ]
+}
