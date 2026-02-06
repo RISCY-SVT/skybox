@@ -1,0 +1,255 @@
+# Skybox RTL modules grouped by subsystem
+
+- Skybox git SHA: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+- Source index: `docs/skybox_rtl_modules_index.json`
+- Total module declarations: `176`
+- Submodule snapshot:
+  - `e5a599b8c002ec9d792bbb691ac8563bb3fa7372 third_party/cocogfx (heads/master)`
+  - `a6af691551ffbd76d5d9cf30774d3295a41615e4 third_party/cvfpu (v0.6.6-56-ga6af691)`
+  - `6aeee85d0a34fedc06c14f04fd6363c9f7b4eeea third_party/cvfpu/src/common_cells (v1.16.1-63-g6aeee85)`
+  - `86e1f558b3c95e91577c41b2fc452c86b04e85ac third_party/cvfpu/src/fpu_div_sqrt_mvp (v1.0.4)`
+  - `28be2d4fbf41b38fc37763bb6e90a1c88f6aaa61 third_party/cvfpu/tb/flexfloat (28be2d4)`
+  - `e62c84a6f0e06566ba6e182d308434b4532068a5 third_party/ramulator (e62c84a)`
+  - `b51ef8f3201669b2288104c28546fc72532a1ea4 third_party/softfloat (b51ef8f)`
+
+## Subsystem summary
+
+| Subsystem | Modules | Top-candidate modules (heuristic) |
+|---|---:|---|
+| `top` | 5 | VX_cluster, VX_graphics, VX_socket, Vortex, Vortex_axi |
+| `core` | 33 | VX_alu_unit, VX_core, VX_core_top, VX_csr_unit, VX_dispatch_unit, VX_fpu_unit, VX_gather_unit, VX_issue_top (+5) |
+| `mem` | 8 | VX_gbar_unit, VX_local_mem_top |
+| `cache` | 11 | VX_cache_top, VX_cache_wrap |
+| `raster` | 13 | VX_raster_unit, VX_raster_unit_top |
+| `tex` | 14 | VX_tex_unit, VX_tex_unit_top, VX_tex_wrap |
+| `om` | 16 | VX_om_unit, VX_om_unit_top |
+| `fpu` | 12 | VX_fcvt_unit, VX_fncp_unit |
+| `afu` | 6 | VX_afu_wrap |
+| `libs` | 58 | - |
+
+## top (5)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_cluster` | `hw/rtl/VX_cluster.sv:34` | `-` | `CLUSTER_ID` | `-` |
+| `VX_graphics` | `hw/rtl/VX_graphics.sv:16` | `-` | `CLUSTER_ID` | `-` |
+| `VX_socket` | `hw/rtl/VX_socket.sv:16` | `-` | `SOCKET_ID` | `-` |
+| `Vortex` | `hw/rtl/Vortex.sv:28` | `-` | `-` | `Vortex_axi, vortex_afu` |
+| `Vortex_axi` | `hw/rtl/Vortex_axi.sv:16` | `-` | `AXI_DATA_WIDTH, AXI_ADDR_WIDTH, AXI_TID_WIDTH, AXI_NUM_BANKS` | `-` |
+
+## core (33)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_alu_int` | `hw/rtl/core/VX_alu_int.sv:16` | `-` | `BLOCK_IDX, NUM_LANES` | `-` |
+| `VX_alu_muldiv` | `hw/rtl/core/VX_alu_muldiv.sv:16` | `-` | `NUM_LANES` | `-` |
+| `VX_alu_unit` | `hw/rtl/core/VX_alu_unit.sv:16` | `-` | `-` | `-` |
+| `VX_commit` | `hw/rtl/core/VX_commit.sv:16` | `-` | `-` | `-` |
+| `VX_core` | `hw/rtl/core/VX_core.sv:32` | `-` | `CORE_ID` | `-` |
+| `VX_core_top` | `hw/rtl/core/VX_core_top.sv:20` | `-` | `CORE_ID` | `-` |
+| `VX_csr_data` | `hw/rtl/core/VX_csr_data.sv:29` | `-` | `CORE_ID` | `-` |
+| `VX_csr_unit` | `hw/rtl/core/VX_csr_unit.sv:16` | `-` | `CORE_ID, NUM_LANES` | `-` |
+| `VX_dcr_data` | `hw/rtl/core/VX_dcr_data.sv:16` | `-` | `-` | `VX_core` |
+| `VX_decode` | `hw/rtl/core/VX_decode.sv:30` | `-` | `-` | `-` |
+| `VX_dispatch` | `hw/rtl/core/VX_dispatch.sv:16` | `-` | `-` | `-` |
+| `VX_dispatch_unit` | `hw/rtl/core/VX_dispatch_unit.sv:16` | `-` | `BLOCK_SIZE, NUM_LANES, OUT_BUF, MAX_FANOUT` | `-` |
+| `VX_execute` | `hw/rtl/core/VX_execute.sv:16` | `-` | `CORE_ID` | `-` |
+| `VX_fetch` | `hw/rtl/core/VX_fetch.sv:16` | `-` | `-` | `-` |
+| `VX_fpu_unit` | `hw/rtl/core/VX_fpu_unit.sv:16` | `-` | `-` | `-` |
+| `VX_gather_unit` | `hw/rtl/core/VX_gather_unit.sv:16` | `-` | `BLOCK_SIZE, NUM_LANES, OUT_BUF` | `-` |
+| `VX_ibuffer` | `hw/rtl/core/VX_ibuffer.sv:16` | `-` | `-` | `-` |
+| `VX_ipdom_stack` | `hw/rtl/core/VX_ipdom_stack.sv:16` | `-` | `WIDTH, DEPTH, OUT_REG, ADDRW` | `-` |
+| `VX_issue` | `hw/rtl/core/VX_issue.sv:16` | `-` | `-` | `-` |
+| `VX_issue_slice` | `hw/rtl/core/VX_issue_slice.sv:16` | `-` | `ISSUE_ID` | `-` |
+| `VX_issue_top` | `hw/rtl/core/VX_issue_top.sv:16` | `-` | `-` | `-` |
+| `VX_lsu_slice` | `hw/rtl/core/VX_lsu_slice.sv:16` | `-` | `-` | `-` |
+| `VX_lsu_unit` | `hw/rtl/core/VX_lsu_unit.sv:16` | `-` | `-` | `-` |
+| `VX_mem_unit` | `hw/rtl/core/VX_mem_unit.sv:16` | `-` | `-` | `-` |
+| `VX_mem_unit_top` | `hw/rtl/core/VX_mem_unit_top.sv:16` | `-` | `LSU_WORD_WIDTH` | `-` |
+| `VX_operands` | `hw/rtl/core/VX_operands.sv:23` | `-` | `NUM_BANKS, OUT_BUF` | `-` |
+| `VX_pe_switch` | `hw/rtl/core/VX_pe_switch.sv:16` | `-` | `PE_COUNT, NUM_LANES, REQ_OUT_BUF, RSP_OUT_BUF, PE_SEL_BITS` | `-` |
+| `VX_schedule` | `hw/rtl/core/VX_schedule.sv:16` | `-` | `CORE_ID` | `-` |
+| `VX_scoreboard` | `hw/rtl/core/VX_scoreboard.sv:16` | `-` | `-` | `-` |
+| `VX_sfu_unit` | `hw/rtl/core/VX_sfu_unit.sv:16` | `-` | `CORE_ID` | `-` |
+| `VX_split_join` | `hw/rtl/core/VX_split_join.sv:16` | `-` | `-` | `-` |
+| `VX_uuid_gen` | `hw/rtl/core/VX_uuid_gen.sv:16` | `-` | `CORE_ID, UUID_WIDTH` | `-` |
+| `VX_wctl_unit` | `hw/rtl/core/VX_wctl_unit.sv:16` | `-` | `NUM_LANES` | `-` |
+
+## mem (8)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_gbar_arb` | `hw/rtl/mem/VX_gbar_arb.sv:16` | `-` | `NUM_REQS, OUT_BUF` | `-` |
+| `VX_gbar_unit` | `hw/rtl/mem/VX_gbar_unit.sv:16` | `-` | `-` | `-` |
+| `VX_lmem_switch` | `hw/rtl/mem/VX_lmem_switch.sv:16` | `-` | `REQ0_OUT_BUF, REQ1_OUT_BUF, RSP_OUT_BUF` | `-` |
+| `VX_local_mem` | `hw/rtl/mem/VX_local_mem.sv:16` | `-` | `SIZE, NUM_REQS, NUM_BANKS, ADDR_WIDTH, WORD_SIZE, UUID_WIDTH, TAG_WIDTH, OUT_BUF` | `-` |
+| `VX_local_mem_top` | `hw/rtl/mem/VX_local_mem_top.sv:16` | `-` | `SIZE, NUM_REQS, NUM_BANKS, WORD_SIZE, UUID_WIDTH, TAG_WIDTH, NUM_WORDS, WORDS_PER_BANK, BANK_ADDR_WIDTH, ADDR_WIDTH` | `-` |
+| `VX_lsu_adapter` | `hw/rtl/mem/VX_lsu_adapter.sv:16` | `-` | `NUM_LANES, DATA_SIZE, TAG_WIDTH, TAG_SEL_BITS, REQ_OUT_BUF, RSP_OUT_BUF` | `-` |
+| `VX_mem_arb` | `hw/rtl/mem/VX_mem_arb.sv:16` | `-` | `NUM_INPUTS, NUM_OUTPUTS, DATA_SIZE, MEM_ADDR_WIDTH, ADDR_WIDTH, TAG_WIDTH, TAG_SEL_IDX, REQ_OUT_BUF, RSP_OUT_BUF` | `-` |
+| `VX_mem_switch` | `hw/rtl/mem/VX_mem_switch.sv:16` | `-` | `NUM_REQS, DATA_SIZE, TAG_WIDTH, ADDR_WIDTH, REQ_OUT_BUF, RSP_OUT_BUF, LOG_NUM_REQS` | `-` |
+
+## cache (11)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_bank_flush` | `hw/rtl/cache/VX_bank_flush.sv:16` | `-` | `BANK_ID, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WRITEBACK` | `-` |
+| `VX_cache` | `hw/rtl/cache/VX_cache.sv:16` | `-` | `NUM_REQS, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WORD_SIZE, CRSQ_SIZE, MSHR_SIZE, MRSQ_SIZE, MREQ_SIZE, WRITE_ENABLE, WRITEBACK, DIRTY_BYTES, UUID_WIDTH, TAG_WIDTH, CORE_OUT_BUF, MEM_OUT_BUF` | `-` |
+| `VX_cache_bank` | `hw/rtl/cache/VX_cache_bank.sv:16` | `-` | `BANK_ID, NUM_REQS, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WORD_SIZE, CRSQ_SIZE, MSHR_SIZE, MREQ_SIZE, WRITE_ENABLE, WRITEBACK, DIRTY_BYTES, UUID_WIDTH, TAG_WIDTH, CORE_OUT_REG, MEM_OUT_REG, MSHR_ADDR_WIDTH, MEM_TAG_WIDTH, REQ_SEL_WIDTH, WORD_SEL_WIDTH` | `-` |
+| `VX_cache_bypass` | `hw/rtl/cache/VX_cache_bypass.sv:16` | `-` | `NUM_REQS, TAG_SEL_IDX, PASSTHRU, NC_ENABLE, WORD_SIZE, LINE_SIZE, CORE_ADDR_WIDTH, CORE_TAG_WIDTH, MEM_ADDR_WIDTH, MEM_TAG_IN_WIDTH, MEM_TAG_OUT_WIDTH, UUID_WIDTH, CORE_OUT_BUF, MEM_OUT_BUF, CORE_DATA_WIDTH` | `-` |
+| `VX_cache_cluster` | `hw/rtl/cache/VX_cache_cluster.sv:16` | `-` | `NUM_UNITS, NUM_INPUTS, TAG_SEL_IDX, NUM_REQS, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WORD_SIZE, CRSQ_SIZE, MSHR_SIZE, MRSQ_SIZE, MREQ_SIZE, WRITE_ENABLE, WRITEBACK, DIRTY_BYTES, UUID_WIDTH, TAG_WIDTH, NC_ENABLE, CORE_OUT_BUF, MEM_OUT_BUF` | `-` |
+| `VX_cache_data` | `hw/rtl/cache/VX_cache_data.sv:16` | `-` | `BANK_ID, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WORD_SIZE, WRITE_ENABLE, WRITEBACK, DIRTY_BYTES, UUID_WIDTH` | `-` |
+| `VX_cache_flush` | `hw/rtl/cache/VX_cache_flush.sv:16` | `-` | `NUM_REQS, NUM_BANKS, UUID_WIDTH, TAG_WIDTH, BANK_SEL_LATENCY` | `-` |
+| `VX_cache_mshr` | `hw/rtl/cache/VX_cache_mshr.sv:58` | `-` | `BANK_ID, LINE_SIZE, NUM_BANKS, MSHR_SIZE, UUID_WIDTH, DATA_WIDTH, MSHR_ADDR_WIDTH` | `-` |
+| `VX_cache_tags` | `hw/rtl/cache/VX_cache_tags.sv:16` | `-` | `BANK_ID, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WORD_SIZE, WRITEBACK, UUID_WIDTH` | `-` |
+| `VX_cache_top` | `hw/rtl/cache/VX_cache_top.sv:16` | `-` | `NUM_REQS, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WORD_SIZE, CRSQ_SIZE, MSHR_SIZE, MRSQ_SIZE, MREQ_SIZE, WRITE_ENABLE, WRITEBACK, DIRTY_BYTES, UUID_WIDTH, TAG_WIDTH, CORE_OUT_BUF, MEM_OUT_BUF, MEM_TAG_WIDTH` | `-` |
+| `VX_cache_wrap` | `hw/rtl/cache/VX_cache_wrap.sv:16` | `-` | `TAG_SEL_IDX, NUM_REQS, CACHE_SIZE, LINE_SIZE, NUM_BANKS, NUM_WAYS, WORD_SIZE, CRSQ_SIZE, MSHR_SIZE, MRSQ_SIZE, MREQ_SIZE, WRITE_ENABLE, WRITEBACK, DIRTY_BYTES, UUID_WIDTH, TAG_WIDTH, NC_ENABLE, PASSTHRU, CORE_OUT_BUF, MEM_OUT_BUF` | `-` |
+
+## raster (13)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_raster_agent` | `hw/rtl/raster/VX_raster_agent.sv:18` | `-` | `CORE_ID, NUM_LANES` | `-` |
+| `VX_raster_arb` | `hw/rtl/raster/VX_raster_arb.sv:18` | `-` | `NUM_INPUTS, NUM_OUTPUTS, NUM_LANES, OUT_BUF` | `-` |
+| `VX_raster_be` | `hw/rtl/raster/VX_raster_be.sv:23` | `-` | `BLOCK_LOGSIZE, OUTPUT_QUADS, QUAD_FIFO_DEPTH` | `-` |
+| `VX_raster_csr` | `hw/rtl/raster/VX_raster_csr.sv:18` | `-` | `CORE_ID, NUM_LANES, PID_WIDTH` | `-` |
+| `VX_raster_dcr` | `hw/rtl/raster/VX_raster_dcr.sv:18` | `-` | `-` | `-` |
+| `VX_raster_edge` | `hw/rtl/raster/VX_raster_edge.sv:18` | `-` | `LATENCY` | `-` |
+| `VX_raster_extents` | `hw/rtl/raster/VX_raster_extents.sv:18` | `-` | `TILE_LOGSIZE` | `-` |
+| `VX_raster_mem` | `hw/rtl/raster/VX_raster_mem.sv:24` | `-` | `INSTANCE_IDX, NUM_INSTANCES, TILE_LOGSIZE, QUEUE_SIZE` | `-` |
+| `VX_raster_qe` | `hw/rtl/raster/VX_raster_qe.sv:23` | `-` | `NUM_QUADS` | `-` |
+| `VX_raster_slice` | `hw/rtl/raster/VX_raster_slice.sv:24` | `-` | `TILE_LOGSIZE, BLOCK_LOGSIZE, OUTPUT_QUADS, QUAD_FIFO_DEPTH` | `-` |
+| `VX_raster_te` | `hw/rtl/raster/VX_raster_te.sv:24` | `-` | `TILE_LOGSIZE, BLOCK_LOGSIZE` | `-` |
+| `VX_raster_unit` | `hw/rtl/raster/VX_raster_unit.sv:18` | `-` | `INSTANCE_IDX, NUM_INSTANCES, NUM_SLICES, TILE_LOGSIZE, BLOCK_LOGSIZE, MEM_FIFO_DEPTH, QUAD_FIFO_DEPTH, OUTPUT_QUADS` | `-` |
+| `VX_raster_unit_top` | `hw/rtl/raster/VX_raster_unit_top.sv:18` | `-` | `INSTANCE_IDX, NUM_INSTANCES, NUM_SLICES, TILE_LOGSIZE, BLOCK_LOGSIZE, MEM_FIFO_DEPTH, QUAD_FIFO_DEPTH, OUTPUT_QUADS` | `-` |
+
+## tex (14)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_tex_addr` | `hw/rtl/tex/VX_tex_addr.sv:18` | `-` | `REQ_TAGW, NUM_LANES, W_ADDR_BITS` | `-` |
+| `VX_tex_agent` | `hw/rtl/tex/VX_tex_agent.sv:18` | `-` | `CORE_ID, NUM_LANES` | `-` |
+| `VX_tex_arb` | `hw/rtl/tex/VX_tex_arb.sv:18` | `-` | `NUM_INPUTS, NUM_OUTPUTS, NUM_LANES, TAG_WIDTH, TAG_SEL_IDX, OUT_BUF_REQ, OUT_BUF_RSP` | `-` |
+| `VX_tex_csr` | `hw/rtl/tex/VX_tex_csr.sv:18` | `-` | `CORE_ID, NUM_LANES` | `-` |
+| `VX_tex_dcr` | `hw/rtl/tex/VX_tex_dcr.sv:18` | `-` | `NUM_STAGES` | `-` |
+| `VX_tex_format` | `hw/rtl/tex/VX_tex_format.sv:18` | `-` | `-` | `VX_tex_sampler` |
+| `VX_tex_lerp` | `hw/rtl/tex/VX_tex_lerp.sv:19` | `-` | `LATENCY` | `-` |
+| `VX_tex_mem` | `hw/rtl/tex/VX_tex_mem.sv:18` | `-` | `REQ_TAGW, NUM_LANES, W_ADDR_BITS` | `-` |
+| `VX_tex_sampler` | `hw/rtl/tex/VX_tex_sampler.sv:18` | `-` | `REQ_TAGW, NUM_LANES` | `-` |
+| `VX_tex_sat` | `hw/rtl/tex/VX_tex_sat.sv:18` | `-` | `IN_W, OUT_W, MODEL` | `-` |
+| `VX_tex_stride` | `hw/rtl/tex/VX_tex_stride.sv:18` | `-` | `-` | `VX_tex_addr` |
+| `VX_tex_unit` | `hw/rtl/tex/VX_tex_unit.sv:18` | `-` | `NUM_LANES, TAG_WIDTH` | `-` |
+| `VX_tex_unit_top` | `hw/rtl/tex/VX_tex_unit_top.sv:18` | `-` | `NUM_LANES, TAG_WIDTH` | `-` |
+| `VX_tex_wrap` | `hw/rtl/tex/VX_tex_wrap.sv:18` | `-` | `-` | `VX_tex_addr` |
+
+## om (16)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_blend_func` | `hw/rtl/om/VX_om_blend_func.sv:18` | `-` | `INDEX` | `VX_om_blend_func` |
+| `VX_om_agent` | `hw/rtl/om/VX_om_agent.sv:18` | `-` | `CORE_ID, NUM_LANES` | `-` |
+| `VX_om_arb` | `hw/rtl/om/VX_om_arb.sv:18` | `-` | `NUM_INPUTS, NUM_OUTPUTS, NUM_LANES, OUT_BUF` | `-` |
+| `VX_om_blend` | `hw/rtl/om/VX_om_blend.sv:18` | `-` | `NUM_LANES, TAG_WIDTH` | `-` |
+| `VX_om_blend_func` | `hw/rtl/om/VX_om_blend_func.sv:63` | `-` | `-` | `VX_om_blend` |
+| `VX_om_blend_minmax` | `hw/rtl/om/VX_om_blend_minmax.sv:18` | `-` | `LATENCY` | `-` |
+| `VX_om_blend_multadd` | `hw/rtl/om/VX_om_blend_multadd.sv:18` | `-` | `LATENCY` | `-` |
+| `VX_om_compare` | `hw/rtl/om/VX_om_compare.sv:18` | `-` | `DATAW` | `-` |
+| `VX_om_csr` | `hw/rtl/om/VX_om_csr.sv:18` | `-` | `CORE_ID, NUM_LANES` | `-` |
+| `VX_om_dcr` | `hw/rtl/om/VX_om_dcr.sv:18` | `-` | `-` | `-` |
+| `VX_om_ds` | `hw/rtl/om/VX_om_ds.sv:18` | `-` | `NUM_LANES, TAG_WIDTH` | `-` |
+| `VX_om_logic_op` | `hw/rtl/om/VX_om_logic_op.sv:18` | `-` | `LATENCY` | `-` |
+| `VX_om_mem` | `hw/rtl/om/VX_om_mem.sv:19` | `-` | `NUM_LANES, TAG_WIDTH` | `-` |
+| `VX_om_stencil_op` | `hw/rtl/om/VX_om_stencil_op.sv:18` | `-` | `DATAW` | `-` |
+| `VX_om_unit` | `hw/rtl/om/VX_om_unit.sv:18` | `-` | `NUM_LANES` | `-` |
+| `VX_om_unit_top` | `hw/rtl/om/VX_om_unit_top.sv:18` | `-` | `NUM_LANES` | `-` |
+
+## fpu (12)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_fcvt_unit` | `hw/rtl/fpu/VX_fcvt_unit.sv:21` | `FPU_DSP` | `LATENCY, INT_WIDTH, MAN_BITS, EXP_BITS, OUT_REG` | `-` |
+| `VX_fncp_unit` | `hw/rtl/fpu/VX_fncp_unit.sv:21` | `FPU_DSP` | `LATENCY, EXP_BITS, MAN_BITS, OUT_REG` | `-` |
+| `VX_fp_classifier` | `hw/rtl/fpu/VX_fp_classifier.sv:18` | `FPU_DSP` | `MAN_BITS, EXP_BITS` | `-` |
+| `VX_fp_rounding` | `hw/rtl/fpu/VX_fp_rounding.sv:21` | `FPU_DSP` | `DAT_WIDTH` | `-` |
+| `VX_fpu_cvt` | `hw/rtl/fpu/VX_fpu_cvt.sv:18` | `FPU_DSP` | `NUM_LANES, NUM_PES, TAG_WIDTH` | `-` |
+| `VX_fpu_div` | `hw/rtl/fpu/VX_fpu_div.sv:18` | `FPU_DSP` | `NUM_LANES, NUM_PES, TAG_WIDTH` | `-` |
+| `VX_fpu_dpi` | `hw/rtl/fpu/VX_fpu_dpi.sv:18` | `FPU_DPI` | `NUM_LANES, TAG_WIDTH, OUT_BUF` | `-` |
+| `VX_fpu_dsp` | `hw/rtl/fpu/VX_fpu_dsp.sv:18` | `FPU_DSP` | `NUM_LANES, TAG_WIDTH, OUT_BUF` | `-` |
+| `VX_fpu_fma` | `hw/rtl/fpu/VX_fpu_fma.sv:18` | `FPU_DSP` | `NUM_LANES, NUM_PES, TAG_WIDTH` | `-` |
+| `VX_fpu_fpnew` | `hw/rtl/fpu/VX_fpu_fpnew.sv:18` | `FPU_FPNEW` | `NUM_LANES, TAG_WIDTH, OUT_BUF` | `-` |
+| `VX_fpu_ncp` | `hw/rtl/fpu/VX_fpu_ncp.sv:18` | `FPU_DSP` | `NUM_LANES, NUM_PES, TAG_WIDTH` | `-` |
+| `VX_fpu_sqrt` | `hw/rtl/fpu/VX_fpu_sqrt.sv:18` | `FPU_DSP` | `NUM_LANES, NUM_PES, TAG_WIDTH` | `-` |
+
+## afu (6)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_afu_ctrl` | `hw/rtl/afu/xrt/VX_afu_ctrl.sv:16` | `-` | `S_AXI_ADDR_WIDTH, S_AXI_DATA_WIDTH` | `-` |
+| `VX_afu_wrap` | `hw/rtl/afu/xrt/VX_afu_wrap.sv:16` | `-` | `C_S_AXI_CTRL_ADDR_WIDTH, C_S_AXI_CTRL_DATA_WIDTH, C_M_AXI_MEM_ID_WIDTH, C_M_AXI_MEM_DATA_WIDTH, C_M_AXI_MEM_ADDR_WIDTH, C_M_AXI_MEM_NUM_BANKS` | `-` |
+| `ccip_interface_reg` | `hw/rtl/afu/opae/ccip_interface_reg.sv:6` | `-` | `-` | `-` |
+| `ccip_std_afu` | `hw/rtl/afu/opae/ccip_std_afu.sv:14` | `!NOPAE` | `NUM_LOCAL_MEM_BANKS` | `-` |
+| `vortex_afu` | `hw/rtl/afu/opae/vortex_afu.sv:25` | `-` | `NUM_LOCAL_MEM_BANKS` | `-` |
+| `vortex_afu` | `hw/rtl/afu/xrt/vortex_afu.v:16` | `-` | `C_S_AXI_CTRL_ADDR_WIDTH, C_S_AXI_CTRL_DATA_WIDTH, C_M_AXI_MEM_ID_WIDTH, C_M_AXI_MEM_DATA_WIDTH, C_M_AXI_MEM_ADDR_WIDTH, C_M_AXI_MEM_NUM_BANKS` | `-` |
+
+## libs (58)
+
+| Module | File | Guard | Parameters | Instantiated by |
+|---|---|---|---|---|
+| `VX_allocator` | `hw/rtl/libs/VX_allocator.sv:17` | `-` | `SIZE, ADDRW` | `-` |
+| `VX_avs_adapter` | `hw/rtl/libs/VX_avs_adapter.sv:17` | `-` | `DATA_WIDTH, ADDR_WIDTH_IN, ADDR_WIDTH_OUT, BURST_WIDTH, NUM_BANKS, TAG_WIDTH, RD_QUEUE_SIZE, BANK_INTERLEAVE, REQ_OUT_BUF, RSP_OUT_BUF` | `-` |
+| `VX_axi_adapter` | `hw/rtl/libs/VX_axi_adapter.sv:17` | `-` | `DATA_WIDTH, ADDR_WIDTH_IN, ADDR_WIDTH_OUT, TAG_WIDTH_IN, TAG_WIDTH_OUT, NUM_BANKS, BANK_INTERLEAVE, TAG_BUFFER_SIZE, RSP_OUT_BUF` | `-` |
+| `VX_axi_write_ack` | `hw/rtl/libs/VX_axi_write_ack.sv:17` | `-` | `-` | `VX_afu_wrap, VX_axi_adapter` |
+| `VX_bits_insert` | `hw/rtl/libs/VX_bits_insert.sv:17` | `-` | `N, S, POS` | `-` |
+| `VX_bits_remove` | `hw/rtl/libs/VX_bits_remove.sv:17` | `-` | `N, S, POS` | `-` |
+| `VX_bypass_buffer` | `hw/rtl/libs/VX_bypass_buffer.sv:25` | `-` | `DATAW, PASSTHRU` | `-` |
+| `VX_cyclic_arbiter` | `hw/rtl/libs/VX_cyclic_arbiter.sv:17` | `-` | `NUM_REQS, LOG_NUM_REQS` | `-` |
+| `VX_decoder` | `hw/rtl/libs/VX_decoder.sv:20` | `-` | `N, M, MODEL, D` | `-` |
+| `VX_divider` | `hw/rtl/libs/VX_divider.sv:17` | `-` | `N_WIDTH, D_WIDTH, Q_WIDTH, R_WIDTH, N_SIGNED, D_SIGNED, LATENCY` | `-` |
+| `VX_dp_ram` | `hw/rtl/libs/VX_dp_ram.sv:17` | `-` | `DATAW, SIZE, WRENW, OUT_REG, LUTRAM, NO_RWCHECK, RW_ASSERT, RESET_RAM, RESET_OUT, READ_ENABLE, INIT_ENABLE, INIT_FILE, ADDRW` | `-` |
+| `VX_edge_trigger` | `hw/rtl/libs/VX_edge_trigger.sv:17` | `-` | `POS, INIT` | `-` |
+| `VX_elastic_adapter` | `hw/rtl/libs/VX_elastic_adapter.sv:17` | `-` | `-` | `VX_alu_muldiv` |
+| `VX_elastic_buffer` | `hw/rtl/libs/VX_elastic_buffer.sv:17` | `-` | `DATAW, SIZE, OUT_REG, LUTRAM` | `-` |
+| `VX_encoder` | `hw/rtl/libs/VX_encoder.sv:20` | `-` | `N, REVERSE, MODEL, LN` | `-` |
+| `VX_fifo_queue` | `hw/rtl/libs/VX_fifo_queue.sv:17` | `-` | `DATAW, DEPTH, ALM_FULL, ALM_EMPTY, OUT_REG, LUTRAM, SIZEW` | `-` |
+| `VX_find_first` | `hw/rtl/libs/VX_find_first.sv:17` | `-` | `N, DATAW, REVERSE` | `-` |
+| `VX_generic_arbiter` | `hw/rtl/libs/VX_generic_arbiter.sv:17` | `-` | `NUM_REQS, LOG_NUM_REQS` | `-` |
+| `VX_index_buffer` | `hw/rtl/libs/VX_index_buffer.sv:17` | `-` | `DATAW, SIZE, LUTRAM, ADDRW` | `-` |
+| `VX_index_queue` | `hw/rtl/libs/VX_index_queue.sv:17` | `-` | `DATAW, SIZE` | `-` |
+| `VX_lzc` | `hw/rtl/libs/VX_lzc.sv:17` | `-` | `N, REVERSE, LOGN` | `-` |
+| `VX_matrix_arbiter` | `hw/rtl/libs/VX_matrix_arbiter.sv:17` | `-` | `NUM_REQS, LOG_NUM_REQS` | `-` |
+| `VX_mem_adapter` | `hw/rtl/libs/VX_mem_adapter.sv:17` | `-` | `SRC_DATA_WIDTH, SRC_ADDR_WIDTH, DST_DATA_WIDTH, DST_ADDR_WIDTH, SRC_TAG_WIDTH, DST_TAG_WIDTH, REQ_OUT_BUF, RSP_OUT_BUF` | `-` |
+| `VX_mem_coalescer` | `hw/rtl/libs/VX_mem_coalescer.sv:17` | `-` | `NUM_REQS, ADDR_WIDTH, FLAGS_WIDTH, DATA_IN_SIZE, DATA_OUT_SIZE, TAG_WIDTH, UUID_WIDTH, QUEUE_SIZE, DATA_IN_WIDTH, DATA_OUT_WIDTH, DATA_RATIO, DATA_RATIO_W, OUT_REQS, OUT_ADDR_WIDTH, QUEUE_ADDRW, OUT_TAG_WIDTH` | `-` |
+| `VX_mem_scheduler` | `hw/rtl/libs/VX_mem_scheduler.sv:17` | `-` | `CORE_REQS, MEM_CHANNELS, WORD_SIZE, LINE_SIZE, ADDR_WIDTH, FLAGS_WIDTH, TAG_WIDTH, UUID_WIDTH, CORE_QUEUE_SIZE, MEM_QUEUE_SIZE, RSP_PARTIAL, CORE_OUT_BUF, MEM_OUT_BUF, WORD_WIDTH, LINE_WIDTH, COALESCE_ENABLE, PER_LINE_REQS, MERGED_REQS, MEM_BATCHES, MEM_BATCH_BITS, MEM_QUEUE_ADDRW, MEM_ADDR_WIDTH, MEM_TAG_WIDTH` | `-` |
+| `VX_multiplier` | `hw/rtl/libs/VX_multiplier.sv:17` | `-` | `A_WIDTH, B_WIDTH, R_WIDTH, SIGNED, LATENCY` | `-` |
+| `VX_mux` | `hw/rtl/libs/VX_mux.sv:17` | `-` | `DATAW, N, LN` | `-` |
+| `VX_onehot_mux` | `hw/rtl/libs/VX_onehot_mux.sv:17` | `-` | `DATAW, N, MODEL, LUT_OPT` | `-` |
+| `VX_onehot_shift` | `hw/rtl/libs/VX_onehot_shift.sv:17` | `-` | `N, M` | `-` |
+| `VX_pe_serializer` | `hw/rtl/libs/VX_pe_serializer.sv:17` | `-` | `NUM_LANES, NUM_PES, LATENCY, DATA_IN_WIDTH, DATA_OUT_WIDTH, TAG_WIDTH, PE_REG, OUT_BUF` | `-` |
+| `VX_pending_size` | `hw/rtl/libs/VX_pending_size.sv:17` | `-` | `SIZE, INCRW, DECRW, ALM_FULL, ALM_EMPTY, SIZEW` | `-` |
+| `VX_pipe_buffer` | `hw/rtl/libs/VX_pipe_buffer.sv:26` | `-` | `DATAW, RESETW, DEPTH` | `-` |
+| `VX_pipe_register` | `hw/rtl/libs/VX_pipe_register.sv:17` | `-` | `DATAW, RESETW, DEPTH` | `-` |
+| `VX_popcount` | `hw/rtl/libs/VX_popcount.sv:88` | `-` | `MODEL, N, M` | `-` |
+| `VX_popcount32` | `hw/rtl/libs/VX_popcount.sv:45` | `-` | `-` | `VX_popcount` |
+| `VX_popcount63` | `hw/rtl/libs/VX_popcount.sv:17` | `-` | `-` | `VX_popcount` |
+| `VX_priority_arbiter` | `hw/rtl/libs/VX_priority_arbiter.sv:17` | `-` | `NUM_REQS, LOG_NUM_REQS` | `-` |
+| `VX_priority_encoder` | `hw/rtl/libs/VX_priority_encoder.sv:17` | `-` | `N, REVERSE, MODEL, LN` | `-` |
+| `VX_reduce` | `hw/rtl/libs/VX_reduce.sv:17` | `-` | `DATAW_IN, DATAW_OUT, N` | `-` |
+| `VX_reset_relay` | `hw/rtl/libs/VX_reset_relay.sv:17` | `-` | `N, MAX_FANOUT` | `-` |
+| `VX_rr_arbiter` | `hw/rtl/libs/VX_rr_arbiter.sv:17` | `-` | `NUM_REQS, MODEL, LOG_NUM_REQS, LUT_OPT` | `-` |
+| `VX_scan` | `hw/rtl/libs/VX_scan.sv:20` | `-` | `N, REVERSE` | `-` |
+| `VX_scope_switch` | `hw/rtl/libs/VX_scope_switch.sv:17` | `-` | `N` | `-` |
+| `VX_scope_tap` | `hw/rtl/libs/VX_scope_tap.sv:17` | `-` | `SCOPE_ID, SCOPE_IDW, XTRIGGERW, HTRIGGERW, PROBEW, DEPTH, IDLE_CTRW, TX_DATAW` | `-` |
+| `VX_serial_div` | `hw/rtl/libs/VX_serial_div.sv:17` | `-` | `WIDTHN, WIDTHD, WIDTHQ, WIDTHR, LANES` | `-` |
+| `VX_serial_mul` | `hw/rtl/libs/VX_serial_mul.sv:21` | `-` | `A_WIDTH, B_WIDTH, R_WIDTH, SIGNED, LANES` | `-` |
+| `VX_shift_register` | `hw/rtl/libs/VX_shift_register.sv:17` | `-` | `DATAW, RESETW, DEPTH, NUM_TAPS, TAP_START, TAP_STRIDE` | `-` |
+| `VX_skid_buffer` | `hw/rtl/libs/VX_skid_buffer.sv:17` | `-` | `DATAW, PASSTHRU, HALF_BW, OUT_REG` | `-` |
+| `VX_sp_ram` | `hw/rtl/libs/VX_sp_ram.sv:17` | `-` | `DATAW, SIZE, WRENW, OUT_REG, LUTRAM, NO_RWCHECK, RW_ASSERT, RESET_RAM, RESET_OUT, READ_ENABLE, INIT_ENABLE, INIT_FILE, ADDRW` | `-` |
+| `VX_stream_arb` | `hw/rtl/libs/VX_stream_arb.sv:17` | `-` | `NUM_INPUTS, NUM_OUTPUTS, DATAW, MAX_FANOUT, OUT_BUF, NUM_REQS, LOG_NUM_REQS, NUM_REQS_W` | `-` |
+| `VX_stream_buffer` | `hw/rtl/libs/VX_stream_buffer.sv:26` | `-` | `DATAW, OUT_REG, PASSTHRU` | `-` |
+| `VX_stream_pack` | `hw/rtl/libs/VX_stream_pack.sv:17` | `-` | `NUM_REQS, DATA_WIDTH, TAG_WIDTH, TAG_SEL_BITS, OUT_BUF` | `-` |
+| `VX_stream_switch` | `hw/rtl/libs/VX_stream_switch.sv:17` | `-` | `NUM_INPUTS, NUM_OUTPUTS, DATAW, OUT_BUF, NUM_REQS, SEL_COUNT, LOG_NUM_REQS` | `-` |
+| `VX_stream_unpack` | `hw/rtl/libs/VX_stream_unpack.sv:17` | `-` | `NUM_REQS, DATA_WIDTH, TAG_WIDTH, OUT_BUF` | `-` |
+| `VX_stream_xbar` | `hw/rtl/libs/VX_stream_xbar.sv:17` | `-` | `NUM_INPUTS, NUM_OUTPUTS, DATAW, IN_WIDTH, OUT_WIDTH, ARBITER, OUT_BUF, MAX_FANOUT, PERF_CTR_BITS` | `-` |
+| `VX_sum33` | `hw/rtl/libs/VX_popcount.sv:59` | `-` | `-` | `VX_popcount` |
+| `VX_toggle_buffer` | `hw/rtl/libs/VX_toggle_buffer.sv:26` | `-` | `DATAW, PASSTHRU` | `-` |
+| `VX_transpose` | `hw/rtl/libs/VX_transpose.sv:17` | `-` | `DATAW, N, M` | `-` |
+

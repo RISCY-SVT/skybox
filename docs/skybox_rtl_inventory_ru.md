@@ -1,9 +1,9 @@
-# Skybox RTL inventory (RU, Stage 09)
+# Skybox RTL inventory (RU, Stage 09b)
 
 ## Basis of truth
 
-- Snapshot date: `2026-02-06T10:09:28+01:00`
-- Skybox git SHA: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+- Snapshot date: `2026-02-06T15:58:00+01:00`
+- Skybox git SHA: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
 - Submodules:
   - `third_party/cocogfx` = `e5a599b8c002ec9d792bbb691ac8563bb3fa7372`
   - `third_party/cvfpu` = `a6af691551ffbd76d5d9cf30774d3295a41615e4`
@@ -17,13 +17,20 @@
   - `runtime/**`
   - `ci/skybox_microtests.sh`, `ci/regression.sh.in` (как доказательство фактического тестового покрытия)
 - Документация (`README`, `docs/*.md`) использовалась только как вторичный ориентир.
+- Автогенерируемые артефакты (Stage 09b):
+  - `docs/skybox_rtl_modules_index.csv`
+  - `docs/skybox_rtl_modules_index.json`
+  - `docs/skybox_rtl_modules_by_subsystem.md`
+  - `docs/skybox_rtl_modules_by_subsystem.csv`
+  - `docs/skybox_vulkan_opengl_keyword_audit_ru.md`
+  - `docs/skybox_hw_gfx_driver_primitives_ru.md`
 
 ---
 
 ### 1) Top-level compute fabric (Vortex / Cluster / Socket / Core)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level: custom RISC-V GPU-like manycore, DCR+CSR control surface
 - RTL entry points:
   - top module: `Vortex` (`hw/rtl/Vortex.sv:28`)
@@ -45,7 +52,7 @@
 - Known limitations / hazards:
   - DCR readback зависит от runtime shadow state (см. блок 3), не от явного RTL read-порта.
 - Coverage by our tests:
-  - `vecadd` simx/rtlsim (Stage 09 smoke) покрывает compute path + cluster/core execution.
+  - `vecadd` simx/rtlsim (Stage 09b smoke) покрывает compute path + cluster/core execution.
   - draw3d microtests покрывают compute + graphics path в кластере.
 - TODO / what to test next:
   - Проверка масштабирования по `NUM_CLUSTERS>1`, `NUM_CORES>1` на rtlsim.
@@ -56,7 +63,7 @@
 ### 2) AXI4 / SoC bridge (Vortex_axi + AXI adapters + AFU wrapper)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level:
     - AXI4 master: `Vortex_axi` / `VX_axi_adapter`
     - AXI4-Lite slave: XRT AFU wrapper
@@ -95,7 +102,7 @@
 ### 3) HW/SW control surface (DCR + CSR + MPM perf)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level: custom DCR address map + CSR counters
 - RTL entry points:
   - address map macros: `hw/rtl/VX_types.vh`
@@ -128,7 +135,7 @@
 ### 4) Memory hierarchy (L1/L2/L3, local mem, interconnect, gbar)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level: custom memory fabric + cache hierarchy
 - RTL entry points:
   - cache stack: `hw/rtl/cache/VX_cache*.sv`
@@ -146,7 +153,7 @@
   - 🟡 NEEDS CONFIRMATION: host-side cache coherency contract для Linux SoC integration
   - 🟡 NEEDS CONFIRMATION: memory ordering corner-cases under heavy mixed gfx+compute traffic
 - Known limitations / hazards:
-  - При переключении host toolchain/runtime конфигов возможно смешивание несовместимых объектов (observed в Stage 09 smoke before clean).
+  - При переключении host toolchain/runtime конфигов возможно смешивание несовместимых объектов (observed в Stage 09b smoke before clean).
 - Coverage by our tests:
   - vecadd simx/rtlsim покрывает compute LSU/cache path.
   - draw3d microtests покрывают graphics cache path (TCACHE/RCACHE/OCACHE + L2).
@@ -160,7 +167,7 @@
 ### 5) Graphics integration hub (`VX_graphics`)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level: fixed-function gfx blocks orchestrated around SFU lanes
 - RTL entry points:
   - top module: `hw/rtl/VX_graphics.sv:16`
@@ -191,7 +198,7 @@
 ### 6) Rasterizer block (`VX_raster_*`)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level: custom raster tile/slice pipeline
 - RTL entry points:
   - top unit: `hw/rtl/raster/VX_raster_unit.sv:18`
@@ -213,7 +220,7 @@
   - NEEDS CONFIRMATION: coverage for degenerate primitives and extreme tile sizes.
 - Coverage by our tests:
   - draw3d microtests cover raster pipeline in combined mode.
-  - `ci/regression.sh.in` contains raster-only cases, but not all were re-run in Stage 09.
+  - `ci/regression.sh.in` contains raster-only cases, but not all were re-run in Stage 09b.
 - TODO / what to test next:
   - Re-run raster-only regression matrix on both simx and rtlsim.
   - Add directed overflow/boundary tests for tile evaluator.
@@ -223,7 +230,7 @@
 ### 7) Texture block (`VX_tex_*`)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level: custom texture address + memory + sampler path
 - RTL entry points:
   - top unit: `hw/rtl/tex/VX_tex_unit.sv:18`
@@ -246,7 +253,7 @@
   - NEEDS CONFIRMATION: formal coverage for all filter/wrap combinations.
 - Coverage by our tests:
   - draw3d microtests (box/vase/triangle) exercise texture in realistic traces.
-  - No dedicated texture-only directed test evidence in Stage 09 run.
+  - No dedicated texture-only directed test evidence in Stage 09b run.
 - TODO / what to test next:
   - Add minimal texture-only microtests (wrap/filter matrix).
   - Verify mip-level edge cases and out-of-range coordinates.
@@ -256,7 +263,7 @@
 ### 8) Output Merger block (`VX_om_*`)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - external spec level: depth/stencil + blend + logic ops
 - RTL entry points:
   - top unit: `hw/rtl/om/VX_om_unit.sv:18`
@@ -280,7 +287,7 @@
   - Correctness depends on DCR state programming; no separate high-level state validation layer in RTL.
 - Coverage by our tests:
   - draw3d microtests (including alpha/depth use in traces) touch OM path.
-  - No explicit standalone OM-only test in Stage 09 run.
+  - No explicit standalone OM-only test in Stage 09b run.
 - TODO / what to test next:
   - Directed OM tests for depth/stencil edge cases and blend mode matrix.
   - Stress test on simultaneous depth+stencil+blend writes.
@@ -290,7 +297,7 @@
 ### 9) FPU block (`VX_fpu_*`, cvfpu integration)
 
 - Version/Revision:
-  - skybox git: `c7be83b8c0add586789fcfc0c26e7c75dc5922f8`
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
   - related submodule: `third_party/cvfpu` = `a6af691551ffbd76d5d9cf30774d3295a41615e4`
   - external spec level: RISC-V F/D extensions path in execution core
 - RTL entry points:
@@ -305,7 +312,7 @@
   - ✅ Multiple FPU implementations present in RTL
   - ✅ Integrated into core execution + CSR plumbing
   - 🟡 NEEDS CONFIRMATION: точный runtime/backend selection policy между `fpnew/dsp/dpi` в конкретном build profile
-  - ❌ Stage 09 не включал отдельный FP-focused directed test
+  - ❌ Stage 09b не включал отдельный FP-focused directed test
 - Known limitations / hazards:
   - Возможна конфигурационная чувствительность (backend-dependent behavior/perf).
 - Coverage by our tests:
@@ -316,19 +323,221 @@
 
 ---
 
+### 10) Core pipeline internals (fetch/decode/issue/execute/commit + warp control)
+
+- Version/Revision:
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+  - external spec level: custom SIMT-style core pipeline
+- RTL entry points:
+  - pipeline stages: `VX_fetch` (`hw/rtl/core/VX_fetch.sv:16`), `VX_decode` (`hw/rtl/core/VX_decode.sv:30`), `VX_issue_top` (`hw/rtl/core/VX_issue_top.sv:16`), `VX_dispatch` (`hw/rtl/core/VX_dispatch.sv:16`), `VX_execute` (`hw/rtl/core/VX_execute.sv:16`), `VX_commit` (`hw/rtl/core/VX_commit.sv:16`)
+  - warp/thread control: `VX_wctl_unit` (`hw/rtl/core/VX_wctl_unit.sv:16`), `VX_split_join` (`hw/rtl/core/VX_split_join.sv:16`), `VX_schedule` (`hw/rtl/core/VX_schedule.sv:16`), `VX_scoreboard` (`hw/rtl/core/VX_scoreboard.sv:16`)
+  - register operand path: `VX_operands` (`hw/rtl/core/VX_operands.sv:16`) with per-bank GPR RAM instances (`hw/rtl/core/VX_operands.sv:252`)
+- Interfaces:
+  - stage-to-stage interfaces from `hw/rtl/interfaces/*` (`VX_fetch_if`, `VX_decode_if`, `VX_execute_if`, `VX_commit_if`, etc.)
+- Config knobs:
+  - issue/core geometry: `ISSUE_WIDTH`, `NUM_WARPS`, `NUM_THREADS`, `NUM_ALU_BLOCK`, `NUM_LSU_BLOCK`, `NUM_FPU_BLOCK` (`hw/rtl/VX_config.vh`)
+- Features matrix:
+  - ✅ Full stage split (fetch/decode/issue/dispatch/execute/commit) реализован отдельными модулями
+  - ✅ SIMT divergence/join flow реализован (`VX_wctl_unit` + `VX_split_join`)
+  - ✅ Hazard tracking/scoreboard реализован (`VX_scoreboard`)
+  - 🟡 NEEDS CONFIRMATION: formal property coverage на corner-cases divergence + long memory stalls
+- Known limitations / hazards:
+  - Требуется отдельная directed-проверка на worst-case pressure для `VX_scoreboard`/`VX_schedule` сочетаний.
+- Coverage by our tests:
+  - `vecadd` simx/rtlsim, draw3d microtests (через полный core pipeline).
+- TODO / what to test next:
+  - Directed warp divergence regression (deep split/join nesting).
+  - Directed scoreboard saturation test with mixed LSU/SFU/ALU.
+
+---
+
+### 11) LSU / memory request path (core -> mem fabric -> cache -> external)
+
+- Version/Revision:
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+- RTL entry points:
+  - core LSU: `VX_lsu_unit` (`hw/rtl/core/VX_lsu_unit.sv:16`), `VX_lsu_slice` (`hw/rtl/core/VX_lsu_slice.sv:16`), `VX_mem_unit` (`hw/rtl/core/VX_mem_unit.sv:16`)
+  - adapter/fabric: `VX_lsu_adapter` (`hw/rtl/mem/VX_lsu_adapter.sv:16`), `VX_mem_arb` (`hw/rtl/mem/VX_mem_arb.sv:16`), `VX_mem_switch` (`hw/rtl/mem/VX_mem_switch.sv:16`)
+  - cache hierarchy: `VX_cache_wrap/top/cluster/bank` (`hw/rtl/cache/*.sv`)
+- Interfaces:
+  - `VX_lsu_mem_if` (`hw/rtl/mem/VX_lsu_mem_if.sv:16`)
+  - `VX_mem_bus_if` (`hw/rtl/mem/VX_mem_bus_if.sv:16`)
+  - `cache_bus_if` (`hw/rtl/cache/VX_cache_bus_if.sv:16`)
+- Config knobs:
+  - `L1_*`, `L2_*`, `L3_*`, `LMEM_*`, `DCACHE_*`, `ICACHE_*`, `NUM_*CACHES` (`hw/rtl/VX_config.vh`)
+- Features matrix:
+  - ✅ LSU->adapter->fabric->cache path реализован полностью
+  - ✅ Pending request accounting и stalls реализованы (`VX_pending_size`, cache MSHR path)
+  - ✅ Fence wait behavior присутствует (`hw/rtl/core/VX_lsu_slice.sv:507`)
+  - 🟡 NEEDS CONFIRMATION: coherency contract с host/SoC fabric в Linux контексте
+- Known limitations / hazards:
+  - Настройка writeback/flush требует целевых directed тестов для production сценариев.
+- Coverage by our tests:
+  - `vecadd` simx/rtlsim + draw3d microtests.
+- TODO / what to test next:
+  - Stress MSHR/full queue + flush/invalidate сценарии.
+  - Long mixed gfx+compute memory pressure with perf counters enabled.
+
+---
+
+### 12) SFU / custom ISA extensions path (TEX/RASTER/OM hooks)
+
+- Version/Revision:
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+- RTL entry points:
+  - decode hooks: `VX_decode` (`hw/rtl/core/VX_decode.sv:534`, `hw/rtl/core/VX_decode.sv:550`, `hw/rtl/core/VX_decode.sv:564`)
+  - execute/SFU hooks: `VX_execute` (`hw/rtl/core/VX_execute.sv:46`), `VX_sfu_unit` (`hw/rtl/core/VX_sfu_unit.sv:16`)
+  - ISA bits: `ISA_EXT_TEX/RASTER/OM` (`hw/rtl/VX_config.vh:980`)
+- Interfaces:
+  - `VX_sfu_csr_if` (`hw/rtl/interfaces/VX_sfu_csr_if.sv:16`)
+  - gfx perf interfaces: `VX_tex_perf_if`, `VX_raster_perf_if`, `VX_om_perf_if`
+- Config knobs:
+  - `EXT_GFX_ENABLE` cascades to `EXT_TEX_ENABLE/EXT_RASTER_ENABLE/EXT_OM_ENABLE` (`hw/rtl/VX_config.vh:35`)
+  - SFU lane composition in `VX_define.vh:83`..`hw/rtl/VX_define.vh:87`
+- Features matrix:
+  - ✅ Decode + execute + SFU plumbing for TEX/RASTER/OM is present
+  - ✅ Extension capability bits are reflected in ISA extension mask
+  - 🟡 Runtime behavior depends on CONFIGS correctness at build/run time
+- Known limitations / hazards:
+  - Mismatch runtime artifacts vs CONFIGS can disable gfx ISA path (covered by Stage 08 microtests script hardening).
+- Coverage by our tests:
+  - draw3d microtests with `CONFIGS=-DEXT_GFX_ENABLE`.
+- TODO / what to test next:
+  - Add negative tests: expected failure when extension disabled.
+  - Add per-extension smoke tests (`-DEXT_TEX_ENABLE`, `-DEXT_RASTER_ENABLE`, `-DEXT_OM_ENABLE`).
+
+---
+
+### 13) Completion / fencing / interrupt signaling
+
+- Version/Revision:
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+- RTL entry points:
+  - global busy propagation: `Vortex` (`hw/rtl/Vortex.sv:56`, `hw/rtl/Vortex.sv:181`), `VX_cluster` (`hw/rtl/VX_cluster.sv:55`), `VX_socket` (`hw/rtl/VX_socket.sv:62`)
+  - fence wait in LSU: `hw/rtl/core/VX_lsu_slice.sv:507`
+  - AFU completion/interrupt: `VX_afu_ctrl` (`hw/rtl/afu/xrt/VX_afu_ctrl.sv:47`), `VX_afu_wrap` (`hw/rtl/afu/xrt/VX_afu_wrap.sv:115`)
+- Interfaces:
+  - AP control in XRT wrapper: `ap_start`, `ap_done`, `interrupt`
+- Features matrix:
+  - ✅ Busy-based completion propagation exists in compute hierarchy
+  - ✅ Fence wait path exists in core LSU flow
+  - ✅ Interrupt generation exists in AFU wrappers (`interrupt` output)
+  - 🟡 No evidence of rich per-context fence/timeline semaphore abstraction in RTL
+- Known limitations / hazards:
+  - Completion contract is wrapper/platform-specific (XRT/OPAE), needs explicit Linux SoC mapping.
+- Coverage by our tests:
+  - microtests and blackbox paths observe job completion via wrapper/runtime.
+- TODO / what to test next:
+  - Directed interrupt latency/robustness tests in AFU wrappers.
+  - Verify fence ordering under high outstanding memory traffic.
+
+---
+
+### 14) Debug / trace / scope infrastructure
+
+- Version/Revision:
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+- RTL entry points:
+  - platform trace macros: `hw/rtl/VX_platform.vh:123`
+  - scope macros/switch/taps: `hw/rtl/VX_scope.vh:17`
+  - per-block trace/scope gates: `DBG_TRACE_*`, `DBG_SCOPE_*`, `SCOPE`, `PERF_ENABLE` in core/raster/tex/om modules
+- Interfaces:
+  - scope IO declaration/binding macros (`SCOPE_IO_DECL`, `SCOPE_IO_BIND`, `SCOPE_TAP`)
+- Features matrix:
+  - ✅ Fine-grain compile-time debug instrumentation present
+  - ✅ PERF counters are wired in core and gfx blocks
+  - 🟡 Requires compile-time flags and may impact timing/area in synthesis configs
+- Known limitations / hazards:
+  - Debug visibility is configuration-sensitive; not always available in production builds.
+- Coverage by our tests:
+  - microtests capture perf data; scope/traces used in selected debug runs.
+- TODO / what to test next:
+  - Add CI smoke that ensures debug flags compile cleanly for simx and rtlsim.
+  - Add minimal scripted scope capture sanity.
+
+---
+
+### 15) Interfaces layer (`hw/rtl/interfaces` + typed bus contracts)
+
+- Version/Revision:
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+- RTL entry points:
+  - pipeline interfaces: `VX_fetch_if`, `VX_decode_if`, `VX_execute_if`, `VX_commit_if`, `VX_schedule_if`, `VX_scoreboard_if`
+  - control interfaces: `VX_dcr_bus_if`, `VX_sched_csr_if`, `VX_commit_csr_if`, `VX_branch_ctl_if`, `VX_warp_ctl_if`
+  - memory/gfx bus interfaces: `VX_mem_bus_if`, `VX_lsu_mem_if`, `VX_tex_bus_if`, `VX_raster_bus_if`, `VX_om_bus_if`, `VX_gbar_bus_if`
+- Interfaces:
+  - typed SystemVerilog interfaces used as contract layer between major blocks
+- Features matrix:
+  - ✅ Interface decomposition is explicit and wide across compute/mem/gfx paths
+  - ✅ Helps isolate module boundaries for future verification and integration work
+  - 🟡 No auto-generated protocol contract docs; currently source-of-truth is RTL only
+- Known limitations / hazards:
+  - Contract changes are easy to miss without generated interface diff tooling.
+- Coverage by our tests:
+  - All smoke/regression runs inherently traverse these interfaces.
+- TODO / what to test next:
+  - Add static lint rule or generated report for interface signal compatibility across modules.
+
+---
+
+### 16) AFU/XRT wrappers as hardware integration layer (control/MMIO example)
+
+- Version/Revision:
+  - skybox git: `a6f311d6e3b8e2a57c8c68a8e61609c1a715f764`
+- RTL entry points:
+  - XRT wrapper: `VX_afu_wrap` (`hw/rtl/afu/xrt/VX_afu_wrap.sv:16`)
+  - AXI-Lite control: `VX_afu_ctrl` (`hw/rtl/afu/xrt/VX_afu_ctrl.sv:16`)
+  - OPAE wrapper: `hw/rtl/afu/opae/vortex_afu.sv:25`
+- Interfaces:
+  - AXI4 master memory channels + AXI4-Lite control (`s_axi_ctrl_*`)
+  - wrapper-level `interrupt` and `ap_start/ap_done` protocol
+- Features matrix:
+  - ✅ Concrete reference of HW/SW control plane implementation exists
+  - ✅ Integrates `Vortex_axi` with platform-specific control model
+  - 🟡 Wrapper behavior is platform-specific; not a generic SoC bus abstraction
+- Known limitations / hazards:
+  - Linux CVA6+AXI4 SoC integration will need custom wrapper equivalent (not just drop-in XRT AFU).
+- Coverage by our tests:
+  - blackbox/microtests flows use runtime paths that assume wrapper-managed lifecycle.
+- TODO / what to test next:
+  - Prototype minimal SoC-native control wrapper (AXI-Lite/MMIO) and smoke test against simx/rtlsim.
+
+---
+
+### 17) HW primitives readiness for future Vulkan/OpenGL user-mode stack
+
+- Primary table moved to: `docs/skybox_hw_gfx_driver_primitives_ru.md`
+- Status summary:
+  - ✅ Render pipeline primitives (raster/tex/om + caches + command execution) are present.
+  - 🟡 Synchronization/control primitives are present but platform-wrapper specific (`busy`, `ap_done`, `interrupt`, fence wait).
+  - ❌ Hardware evidence for per-process GPU virtual memory, preemption, timeline sync objects, rich fault reporting is not found in current RTL snapshot.
+- Coverage by our tests:
+  - microtests (`tri8`, `tri64`, `vase32`, `box128`) + draw3d smoke cover functional rendering path.
+  - Dedicated Linux driver contract tests are not yet present.
+- TODO / what to test next:
+  - Build directed tests for flush/invalidate/fence semantics expected by a render-only Linux stack.
+  - Add synthetic context-switch/preemption surrogate tests once corresponding HW exists.
+
 ## Сводная таблица всех блоков
 
 | Block | RTL top modules | Key ifdef/params | Status (✅/🟡/❌) | Tested? | Notes / gaps |
 |---|---|---|---|---|---|
 | Top compute fabric | `Vortex`, `VX_cluster`, `VX_socket`, `VX_core*` | `NUM_CLUSTERS`, `NUM_CORES`, `SOCKET_SIZE` | ✅ | ✅ (`vecadd`, draw3d path) | DCR readback path не явный в top |
+| Core pipeline internals | `VX_fetch/decode/issue/dispatch/execute/commit`, `VX_schedule`, `VX_scoreboard`, `VX_wctl_unit` | `ISSUE_WIDTH`, `NUM_WARPS`, `NUM_THREADS` | ✅ | ✅ | Нужны directed tests на deep divergence/scoreboard saturation |
+| LSU/memory path | `VX_lsu_*`, `VX_mem_*`, `VX_cache*` | `L1/L2/L3`, `LMEM_*`, `*CACHE_*` | ✅ | ✅ | Coherency contract with host fabric needs validation |
+| SFU/custom ISA hooks | `VX_decode`, `VX_execute`, `VX_sfu_unit`, `VX_graphics` | `EXT_GFX_ENABLE`, `EXT_TEX/RASTER/OM_ENABLE` | ✅ | ✅ | CONFIGS mismatch remains integration risk |
 | AXI/SoC bridge | `Vortex_axi`, `VX_axi_adapter`, `VX_mem_adapter`, `VX_afu_wrap` | `AXI_*`, `RSP_OUT_BUF` | 🟡 | 🟡 (functional smoke only) | Single-beat FIXED burst, limited response handling |
 | DCR/CSR control | `VX_types.vh`, `VX_dcr_bus_if`, runtime dcr APIs | `VX_DCR_*`, `VX_CSR_*` | 🟡 | ✅ (runtime init/perf) | Runtime shadow `dcr_read`; NEEDS CONFIRMATION for HW readback needs |
-| Memory hierarchy | `VX_cache*`, `VX_mem_*`, `VX_local_mem*`, `VX_gbar_*` | `L1/L2/L3`, `LMEM_*`, `*CACHE_*` | ✅ | ✅ (vecadd + draw3d microtests) | Coherency contract with host fabric needs validation |
 | Graphics hub | `VX_graphics` | `EXT_RASTER/TEX/OM_ENABLE`, `NUM_*_UNITS` | ✅ | ✅ (draw3d microtests) | Render-only; no scanout block |
 | Raster block | `VX_raster_unit`, `VX_raster_*` | `RASTER_*` | ✅ | ✅ (draw3d), 🟡 (raster-only not rerun here) | Overflow assert path needs stress testing |
 | Texture block | `VX_tex_unit`, `VX_tex_*` | `VX_DCR_TEX_*`, `NUM_TEX_UNITS` | 🟡 | ✅ (draw3d) | `VX_tex_csr` has TODO/stub |
 | OM block | `VX_om_unit`, `VX_om_*` | `VX_DCR_OM_*`, `NUM_OM_UNITS` | ✅ | ✅ (draw3d) | Need dedicated OM matrix tests |
 | FPU block | `VX_fpu_unit`, `VX_fpu_*` | `EXT_F_ENABLE`, `EXT_D_ENABLE` | 🟡 | 🟡 (indirect) | Backend selection/coverage needs dedicated tests |
+| Completion/fence/interrupt | `VX_lsu_slice`, `Vortex`, `VX_afu_ctrl`, `VX_afu_wrap` | `busy`, `ap_start/ap_done`, `interrupt` | 🟡 | ✅ | No timeline sync primitive evidence in RTL |
+| Debug/trace/scope | `VX_scope.vh`, `VX_platform.vh`, per-block `DBG_*`/`PERF_ENABLE` hooks | `SCOPE`, `DBG_TRACE_*`, `PERF_ENABLE` | ✅ | 🟡 | Needs dedicated CI sanity for debug configs |
+| Interface contracts | `hw/rtl/interfaces/*.sv`, `*_bus_if` in mem/gfx | typed SV interfaces | ✅ | ✅ | No auto-generated contract diff today |
+| AFU wrapper layer | `VX_afu_wrap`, `VX_afu_ctrl`, `vortex_afu` | AXI4-Lite control + AXI4 mem | 🟡 | ✅ | Platform-specific integration model |
+| HW primitives for Linux gfx stack | see `docs/skybox_hw_gfx_driver_primitives_ru.md` | render/control/sync/fault primitives | 🟡 | 🟡 | Missing VM isolation/preemption/fault telemetry primitives |
 
 ---
 
@@ -338,3 +547,5 @@
 - NEEDS CONFIRMATION: требуется ли hardware DCR readback для production Linux driver model (vs runtime shadow state).
 - NEEDS CONFIRMATION: исчерпывающее покрытие filter/wrap/mip corner cases для TEX.
 - NEEDS CONFIRMATION: backend selection logic and equivalence для FPU (`fpnew/dsp/dpi`) в production configs.
+- NEEDS CONFIRMATION: preemption/context-isolation primitives roadmap для Linux render-only driver стека.
+- NEEDS CONFIRMATION: contract для cache flush/invalidate/fence в присутствии внешней CPU/SoC coherency модели.

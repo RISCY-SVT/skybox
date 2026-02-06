@@ -11,6 +11,12 @@ integration work.
   risks, and next‑stage plan.
 - `skybox_linux_graphics_readiness_ru.md` — RU/extended readiness report
   (separate scanout/display controller assumed).
+- `skybox_rtl_inventory_ru.md` — source-based RTL inventory (Stage 09b).
+- `skybox_rtl_modules_by_subsystem.md` — generated module grouping by subsystem.
+- `skybox_vulkan_opengl_keyword_audit_ru.md` — keyword presence audit (HW-only
+  + whole-repo scopes).
+- `skybox_hw_gfx_driver_primitives_ru.md` — HW primitive readiness matrix for a
+  future Linux render-only Vulkan/OpenGL stack.
 
 ## Test entry points
 - `ci/skybox_microtests.sh` — simx/rtlsim microtests with sha checks.

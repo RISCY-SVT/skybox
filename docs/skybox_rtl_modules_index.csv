@@ -89,7 +89,7 @@ VX_multiplier,hw/rtl/libs/VX_multiplier.sv,sv,17,,A_WIDTH|B_WIDTH|R_WIDTH|SIGNED
 VX_mux,hw/rtl/libs/VX_mux.sv,sv,17,,DATAW|N|LN,
 VX_om_agent,hw/rtl/om/VX_om_agent.sv,sv,18,,CORE_ID|NUM_LANES,
 VX_om_arb,hw/rtl/om/VX_om_arb.sv,sv,18,,NUM_INPUTS|NUM_OUTPUTS|NUM_LANES|OUT_BUF,
-VX_om_blend,hw/rtl/om/VX_om_blend.sv,sv,18,,NUM_LANES|TAG_WIDTH,testbench
+VX_om_blend,hw/rtl/om/VX_om_blend.sv,sv,18,,NUM_LANES|TAG_WIDTH,
 VX_om_blend_func,hw/rtl/om/VX_om_blend_func.sv,sv,63,,,VX_om_blend
 VX_om_blend_minmax,hw/rtl/om/VX_om_blend_minmax.sv,sv,18,,LATENCY,
 VX_om_blend_multadd,hw/rtl/om/VX_om_blend_multadd.sv,sv,18,,LATENCY,
@@ -169,84 +169,9 @@ VX_toggle_buffer,hw/rtl/libs/VX_toggle_buffer.sv,sv,26,,DATAW|PASSTHRU,
 VX_transpose,hw/rtl/libs/VX_transpose.sv,sv,17,,DATAW|N|M,
 VX_uuid_gen,hw/rtl/core/VX_uuid_gen.sv,sv,16,,CORE_ID|UUID_WIDTH,
 VX_wctl_unit,hw/rtl/core/VX_wctl_unit.sv,sv,16,,NUM_LANES,
-Vortex,hw/rtl/Vortex.sv,sv,28,,,Vortex_axi|vortex_afu|vortex_tb
+Vortex,hw/rtl/Vortex.sv,sv,28,,,Vortex_axi|vortex_afu
 Vortex_axi,hw/rtl/Vortex_axi.sv,sv,16,,AXI_DATA_WIDTH|AXI_ADDR_WIDTH|AXI_TID_WIDTH|AXI_NUM_BANKS,
-Vortex_top,hw/syn/xilinx/sandbox/Vortex_top.v,v,16,,C_M_AXI_GMEM_DATA_WIDTH|C_M_AXI_GMEM_ADDR_WIDTH|C_M_AXI_GMEM_ID_WIDTH|C_M_AXI_MEM_NUM_BANKS,
-Vortex_wrap,hw/syn/xilinx/sandbox/Vortex_wrap.sv,sv,16,,C_M_AXI_GMEM_DATA_WIDTH|C_M_AXI_GMEM_ADDR_WIDTH|C_M_AXI_GMEM_ID_WIDTH|C_M_AXI_MEM_NUM_BANKS,
 ccip_interface_reg,hw/rtl/afu/opae/ccip_interface_reg.sv,sv,6,,,
 ccip_std_afu,hw/rtl/afu/opae/ccip_std_afu.sv,sv,14,!NOPAE,NUM_LOCAL_MEM_BANKS,
-datapath_latch_rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,63,ARM_HVM_MODEL,,rf2_128x128_wm1
-datapath_latch_rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,64,ARM_HVM_MODEL,,rf2_256x128_wm1
-datapath_latch_rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,64,ARM_HVM_MODEL,,rf2_256x19_wm0
-datapath_latch_rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v,v,59,,,rf2_32x128_wm1
-datapath_latch_rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,75,ARM_HVM_MODEL,,rf2_32x128_wm1
-datapath_latch_rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,62,ARM_HVM_MODEL,,rf2_32x19_wm0
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,120,ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,124,ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,2531,ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,2535,ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,15360,else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,15364,else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,17516,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,17520,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_128x128_wm1_fr_top
-rf2_128x128_wm1_error_injection,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1.v,v,30066,,LEFT_RED_COLUMN_FAULT|RIGHT_RED_COLUMN_FAULT|NO_RED_FAULT,rf2_128x128_wm1
-rf2_128x128_wm1_fr_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1_rtl.v,v,160,,,rf2_128x128_wm1_rtl_top
-rf2_128x128_wm1_rtl_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_128x128_wm1/rf2_128x128_wm1_rtl.v,v,45,,,
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,121,ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,125,ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,2538,ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,2542,ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,15425,else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,15429,else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,17587,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,17591,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x128_wm1_fr_top
-rf2_256x128_wm1_error_injection,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1.v,v,30195,,LEFT_RED_COLUMN_FAULT|RIGHT_RED_COLUMN_FAULT|NO_RED_FAULT,rf2_256x128_wm1
-rf2_256x128_wm1_fr_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1_rtl.v,v,160,,,rf2_256x128_wm1_rtl_top
-rf2_256x128_wm1_rtl_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x128_wm1/rf2_256x128_wm1_rtl.v,v,45,,,
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,121,ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,125,ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,1272,ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,1276,ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,4375,else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,4379,else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,5497,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,5501,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_256x19_wm0_fr_top
-rf2_256x19_wm0_error_injection,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0.v,v,8555,,LEFT_RED_COLUMN_FAULT|RIGHT_RED_COLUMN_FAULT|NO_RED_FAULT,rf2_256x19_wm0
-rf2_256x19_wm0_fr_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0_rtl.v,v,151,,,rf2_256x19_wm0_rtl_top
-rf2_256x19_wm0_rtl_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_256x19_wm0/rf2_256x19_wm0_rtl.v,v,45,,,
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v,v,116,ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v,v,120,ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v,v,2520,else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v,v,2524,else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,132,ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,136,ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,2531,ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,2535,ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,15243,else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,15247,else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,17387,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,17391,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x128_wm1_fr_top|rf2_32x128_wm1_tb
-rf2_32x128_wm1_error_injection,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1.v,v,15219,,LEFT_RED_COLUMN_FAULT|RIGHT_RED_COLUMN_FAULT|NO_RED_FAULT,rf2_32x128_wm1
-rf2_32x128_wm1_error_injection,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1.v,v,29820,,LEFT_RED_COLUMN_FAULT|RIGHT_RED_COLUMN_FAULT|NO_RED_FAULT,rf2_32x128_wm1
-rf2_32x128_wm1_fr_top,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v,v,160,,,rf2_32x128_wm1_rtl_top
-rf2_32x128_wm1_fr_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v,v,160,,,rf2_32x128_wm1_rtl_top
-rf2_32x128_wm1_rtl_top,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v,v,45,,,
-rf2_32x128_wm1_rtl_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/rf2_32x128_wm1_rtl.v,v,45,,,
-rf2_32x128_wm1_tb,hw/syn/synopsys/models/memory/cln28hpc/rf2_32x128_wm1/vsim/rf2_32x128_wm1_tb.v,v,17,,,
-rf2_32x128_wm1_tb,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x128_wm1/vsim/rf2_32x128_wm1_tb.v,v,17,,,
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,119,ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,123,ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,1252,ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,1256,ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,4180,else:ARM_HVM_MODEL && ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,4184,else:ARM_HVM_MODEL && ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,5284,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,5288,else:ARM_HVM_MODEL && else:ARM_UD_MODEL && else:POWER_PINS,ASSERT_PREFIX|BITS|WORDS|MUX|MEM_WIDTH|MEM_HEIGHT|WP_SIZE|UPM_WIDTH|UPMW_WIDTH|UPMS_WIDTH,rf2_32x19_wm0_fr_top
-rf2_32x19_wm0_error_injection,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0.v,v,8167,,LEFT_RED_COLUMN_FAULT|RIGHT_RED_COLUMN_FAULT|NO_RED_FAULT,rf2_32x19_wm0
-rf2_32x19_wm0_fr_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0_rtl.v,v,151,,,rf2_32x19_wm0_rtl_top
-rf2_32x19_wm0_rtl_top,hw/syn/synopsys/models/memory/cln28hpm/rf2_32x19_wm0/rf2_32x19_wm0_rtl.v,v,45,,,
-testbench,hw/syn/xilinx/sandbox/testbench.v,v,20,,,
-testbench,hw/unit_tests/rop_unit/blending/blend_tb.sv,sv,7,,,
 vortex_afu,hw/rtl/afu/opae/vortex_afu.sv,sv,25,,NUM_LOCAL_MEM_BANKS,
 vortex_afu,hw/rtl/afu/xrt/vortex_afu.v,v,16,,C_S_AXI_CTRL_ADDR_WIDTH|C_S_AXI_CTRL_DATA_WIDTH|C_M_AXI_MEM_ID_WIDTH|C_M_AXI_MEM_DATA_WIDTH|C_M_AXI_MEM_ADDR_WIDTH|C_M_AXI_MEM_NUM_BANKS,
-vortex_tb,hw/syn/modelsim/vortex_tb.v,v,59,,,

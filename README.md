@@ -158,4 +158,8 @@ echo "source <build-path>/ci/toolchain_env.sh" >> ~/.bashrc
 - `docs/skybox_hw_sw_interface.md` — AXI/DCR integration + SW control surface
 - `docs/skybox_linux_graphics_readiness.md` — Linux/Wayland readiness + gaps
 - `docs/skybox_linux_graphics_readiness_ru.md` — RU/extended readiness report
+- `docs/skybox_rtl_inventory_ru.md` — source-based RTL inventory (Stage 09b)
+- `docs/skybox_rtl_modules_by_subsystem.md` — generated subsystem module map
+- `docs/skybox_vulkan_opengl_keyword_audit_ru.md` — HW-first keyword audit
+- `docs/skybox_hw_gfx_driver_primitives_ru.md` — HW primitive readiness matrix
 - `docs/README.md` — index of Skybox‑specific docs and test entry points
