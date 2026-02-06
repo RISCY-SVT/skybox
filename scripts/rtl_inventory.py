@@ -209,7 +209,7 @@ def write_outputs(modules: List[ModuleDecl], csv_path: Path, json_path: Path) ->
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate RTL module inventory index")
     parser.add_argument("--repo-root", default=".", help="Repository root path")
-    parser.add_argument("--hw-dir", default="hw", help="RTL root directory")
+    parser.add_argument("--hw-dir", default="hw/rtl", help="RTL root directory")
     parser.add_argument("--csv-out", default="docs/skybox_rtl_modules_index.csv", help="CSV output path")
     parser.add_argument("--json-out", default="docs/skybox_rtl_modules_index.json", help="JSON output path")
     return parser.parse_args()
