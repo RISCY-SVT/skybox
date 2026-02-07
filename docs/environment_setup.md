@@ -13,7 +13,7 @@ Volvo is a 64-core server provided by HPArch. You need valid credentials to acce
 Setup on Volvo:
 1. Connect to Georgia Tech's VPN or ssh into another machine on campus
 2. `ssh volvo.cc.gatech.edu`
-3. Clone Vortex to your home directory: `git clone --recursive https://github.com/vortexgpgpu/skybox.git`
+3. Clone Vortex to your home directory: `git clone --recursive https://github.com/RISCY-SVT/skybox.git`
 4. `source /nethome/software/set_vortex_env.sh` to set up the necessary environment variables.
 5. `make -s` in the `vortex` root directory
 6. Run a test program: `./ci/blackbox.sh --cores=2 --app=dogfood`
@@ -24,7 +24,7 @@ Nio is a 20-core desktop server provided by HPArch. If you have access to Volvo,
 Setup on Nio:
 1. Connect to Georgia Tech's VPN or ssh into another machine on campus
 2. `ssh nio.cc.gatech.edu`
-3. Clone Vortex to your home directory: `git clone --recursive https://github.com/vortexgpgpu/skybox.git`
+3. Clone Vortex to your home directory: `git clone --recursive https://github.com/RISCY-SVT/skybox.git`
 4. `source /opt/set_vortex_env_dev.sh` to set up the necessary environment variables.
 5. `make -s` in the `vortex` root directory
 6. Run a test program: `./ci/blackbox.sh --cores=2 --app=dogfood`
@@ -34,7 +34,7 @@ Setup on Nio:
 Docker allows for isolated pre-built environments to be created, shared and used. The emulation mode required for ARM-based processors will incur a decrease in performance. Currently, the dockerfile is not included with the official vortex repository and is not actively maintained or supported.
 
 ### Setup with Docker
-1. Clone repo recursively onto your local machine: `git clone --recursive https://github.com/vortexgpgpu/skybox.git`
+1. Clone repo recursively onto your local machine: `git clone --recursive https://github.com/RISCY-SVT/skybox.git`
 2. Download the dockerfile from [here](https://github.gatech.edu/gist/usubramanya3/f1bf3e953faa38a6372e1292ffd0b65c) and place it in the root of the repo.
 3. Build the Dockerfile into an image: `docker build --platform=linux/amd64 -t vortex -f dockerfile .`
 4. Run a container based on the image: `docker run --rm -v ./:/root/vortex/ -it --name vtx-dev --privileged=true --platform=linux/amd64 vortex`

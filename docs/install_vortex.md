@@ -26,7 +26,7 @@
 3. Download the Vortex codebase:
 
    ```
-   git clone --depth=1 --recursive https://github.com/vortexgpgpu/skybox.git
+   git clone --depth=1 --recursive https://github.com/RISCY-SVT/skybox.git
    ```
 4. Build Vortex
 
@@ -65,7 +65,7 @@ Note: depending on the system, some of the toolchain may need to be recompiled f
 4. Download the Vortex codebase:
 
    ```
-   git clone --depth=1 --recursive https://github.com/vortexgpgpu/skybox.git
+   git clone --depth=1 --recursive https://github.com/RISCY-SVT/skybox.git
    ```
 
 5. Build Vortex

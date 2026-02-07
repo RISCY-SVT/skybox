@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get upgrade && apt-get update
 
 # Clone the Vortex repository
-RUN git clone --depth=1 --recursive https://github.com/vortexgpgpu/skybox.git /vortex
+RUN git clone --depth=1 --recursive https://github.com/RISCY-SVT/skybox.git /vortex
 
 # Set the initial working directory
 WORKDIR /vortex

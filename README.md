@@ -47,7 +47,7 @@ More detailed build instructions can be found [here](docs/install_vortex.md).
 - [Sv2v](https://github.com/zachjs/sv2v)
 ### Install Vortex codebase
 ```sh
-git clone --depth=1 --recursive https://github.com/vortexgpgpu/skybox.git
+git clone --depth=1 --recursive https://github.com/RISCY-SVT/skybox.git
 cd skybox
 ```
 ### Install system dependencies

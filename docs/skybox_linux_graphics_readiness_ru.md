@@ -138,7 +138,7 @@
 ---
 
 ## Ссылки (для справки)
-- Skybox repo (README/specs): https://github.com/vortexgpgpu/skybox  
+- Skybox repo (README/specs): https://github.com/RISCY-SVT/skybox  
 - Vortex repo (README/specs): https://github.com/vortexgpgpu/vortex  
 - Vortex publications (Skybox/Vulkan claim): https://vortex.cc.gatech.edu/publications/  
 - Linux DRM internals / render nodes / GEM: https://docs.kernel.org/gpu/drm-internals.html  
