@@ -131,17 +131,25 @@ sv2v()
 
 yosys()
 {
-    case $OSVERSION in
-    "centos/7") parts=$(eval echo {a..c}) ;;
-    *)          parts=$(eval echo {a..c}) ;;
-    esac
-    echo $parts
+    parts=""
     rm -f yosys.tar.bz2.parta*
-    for x in $parts
+    for x in $(eval echo {a..z})
     do
-        wget $REPOSITORY/yosys/$OSVERSION/yosys.tar.bz2.parta$x
+        part_file=yosys.tar.bz2.parta$x
+        part_url=$REPOSITORY/yosys/$OSVERSION/$part_file
+        if wget -q --spider "$part_url"; then
+            wget "$part_url"
+            parts="$parts $part_file"
+        elif [ -n "$parts" ]; then
+            # stop once we hit the first missing part after a contiguous prefix
+            break
+        fi
     done
-    cat yosys.tar.bz2.parta* > yosys.tar.bz2
+    if [ -z "$parts" ]; then
+        echo "Error: unable to locate yosys prebuilt archive parts at $REPOSITORY/yosys/$OSVERSION" >&2
+        exit 1
+    fi
+    cat $parts > yosys.tar.bz2
     tar -xvf yosys.tar.bz2
     mkdir -p $TOOLDIR && rm -rf $TOOLDIR/yosys && mv yosys $TOOLDIR
     rm -rf yosys yosys.tar.bz2* yosys
